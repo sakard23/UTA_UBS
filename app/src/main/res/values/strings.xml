@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">UTA_UBS</string>
+    <string name="wc">Welcome to University Bazaar System</string>
+    <string name="club">UBS Club page </string>
+    <string name="join">Join an existing clubs</string>
+    <string name="create">Create a new club</string>
+    <string name="manage">Manage member\'s club(s)</string>
 </resources>
