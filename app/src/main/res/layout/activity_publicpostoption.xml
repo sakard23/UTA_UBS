@@ -4,29 +4,38 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Public Post Option"
+        android:text="@string/public_post_option"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="138dp"
         android:id="@+id/textView7"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignEnd="@+id/button13" />
 
     <Button
         android:text="@string/read_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
         android:id="@+id/button12"
-        android:layout_below="@+id/textView7"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:text="Write Post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="60dp"
         android:id="@+id/button13"
         android:layout_below="@+id/button12"
         android:layout_alignStart="@+id/button12" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/university_bazaar_system"
+        android:textSize="18sp"
+        android:id="@+id/textView6"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp" />
 </RelativeLayout>

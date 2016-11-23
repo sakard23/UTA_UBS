@@ -67,15 +67,15 @@
         android:paddingLeft="-35dp"
         android:layout_alignBaseline="@+id/signup"
         style="?android:attr/borderlessButtonStyle"
-        />
+        android:id="@+id/button15" />
 
     <TextView
         android:text="UNIVERSITY BAZAAR SYSTEM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView8"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="16dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/log_in" />
+        android:layout_alignEnd="@+id/log_in" />
 </RelativeLayout>
 

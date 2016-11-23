@@ -13,4 +13,6 @@
     <string name="email">Communication </string>
     <string name="read_post">Read Post</string>
     <string name="trade_options">Trade Options</string>
+    <string name="university_bazaar_system">University Bazaar System</string>
+    <string name="public_post_option">Public Post Option</string>
 </resources>

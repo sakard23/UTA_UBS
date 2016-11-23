@@ -19,4 +19,14 @@
         android:layout_marginStart="109dp"
         android:layout_marginTop="179dp"
         android:id="@+id/button3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/university_bazaar_system"
+        android:textSize="18sp"
+        android:id="@+id/textView6"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="59dp" />
 </RelativeLayout>

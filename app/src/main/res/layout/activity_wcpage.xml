@@ -40,17 +40,6 @@
         android:layout_marginTop="18dp"
         android:id="@+id/button9" />
 
-    <Button
-        android:text="@string/club"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="homemenu"
-        android:layout_marginTop="75dp"
-        android:id="@+id/button4"
-        android:layout_below="@+id/textView5"
-        android:layout_alignEnd="@+id/textView5"
-        android:layout_marginEnd="75dp" />
-
     <TextView
         android:text="@string/wc"
         android:layout_width="wrap_content"
@@ -58,6 +47,16 @@
         android:id="@+id/textView5"
         android:textSize="18sp"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/club"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="homemenu"
+        android:layout_marginTop="80dp"
+        android:id="@+id/button4"
+        android:layout_below="@+id/textView5"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
