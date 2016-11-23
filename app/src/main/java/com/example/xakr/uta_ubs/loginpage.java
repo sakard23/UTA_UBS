@@ -24,7 +24,7 @@ public class loginpage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wcpage);
+        setContentView(R.layout.activity_loginpage);
         //login();
         textview = (TextView) findViewById(R.id.textView5);
 
@@ -34,44 +34,15 @@ public class loginpage extends AppCompatActivity {
 
 
 
-        Button T = (Button) findViewById(R.id.button4);
-        T.setOnClickListener(new View.OnClickListener() {
+        Button loginButton = (Button) findViewById(R.id.login_button);
+        loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Intent i = new Intent(getApplicationContext(), clubpage.class);
-                startActivity(i);
-            }
-        });
-        Button U = (Button) findViewById(R.id.button7);
-        T.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Intent i = new Intent(getApplicationContext(), tradepage.class);
-                startActivity(i);
-            }
-        });
-        Button V = (Button) findViewById(R.id.button8);
-        T.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Intent i = new Intent(getApplicationContext(), postpage.class);
-                startActivity(i);
-            }
-        });
-        Button W = (Button) findViewById(R.id.button9);
-        T.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Intent i = new Intent(getApplicationContext(), emailpage.class);
-                startActivity(i);
+                String user = "user";
+                String pass = "pass";
+                logIn(v, user, pass);
             }
         });
 
@@ -87,7 +58,8 @@ public class loginpage extends AppCompatActivity {
         startActivity(intent);
     }
     public void logIn(View view, String username, String password){
-
+        Intent startWCIntent = new Intent(getApplicationContext(), wcpage.class);
+        startActivity(startWCIntent);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////

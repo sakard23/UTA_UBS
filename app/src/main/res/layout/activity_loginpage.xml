@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.xakr.uta_ubs.wcpage">
+    tools:context="com.example.xakr.uta_ubs.loginpage">
 
     <EditText
         android:layout_width="wrap_content"
@@ -76,18 +76,7 @@
         android:text="Not a member? Sign up "
         android:id="@+id/signup"
         android:layout_marginBottom="21dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/login_button" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="@string/at"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_above="@+id/signup"
-        android:layout_marginBottom="23dp" />
+        android:layout_alignParentBottom="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -95,9 +84,9 @@
         android:inputType="textPersonName"
         android:text="Name"
         android:ems="10"
-        android:id="@+id/editText3"
-        android:layout_alignBaseline="@+id/editText"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/editText"
+        android:layout_above="@+id/signup"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="23dp" />
 </RelativeLayout>
 

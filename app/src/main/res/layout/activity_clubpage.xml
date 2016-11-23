@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_home_page_news"
+    android:id="@+id/activity_clubpage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -22,10 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="joinclub"
-        android:id="@+id/button"
+        android:id="@+id/joinClubButton"
         tools:ignore="UnknownId"
         android:layout_marginBottom="74dp"
-        android:layout_alignBottom="@+id/button2"
+        android:layout_alignBottom="@+id/createClubButton"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -33,26 +33,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="createclub"
-        android:id="@+id/button2"
+        android:id="@+id/createClubButton"
         android:layout_marginBottom="35dp"
         android:layout_above="@+id/button3"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignStart="@+id/joinClubButton" />
 
     <Button
         android:text="@string/manage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button3"
+        android:id="@+id/manageMemberButton"
         android:layout_marginBottom="96dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/button2" />
+        android:layout_alignStart="@+id/createClubButton" />
 
     <TextView
         android:layout_width="1250sp"
         android:layout_height="35sp"
         android:text="@string/club"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        android:layout_above="@+id/button"
+        android:layout_above="@+id/joinClubButton"
         android:layout_alignParentStart="true"
         android:id="@+id/textView" />
 
