@@ -11,4 +11,6 @@
     <string name="at">Attempts: </string>
     <string name="post">Public Post </string>
     <string name="email">Communication </string>
+    <string name="read_post">Read Post</string>
+    <string name="trade_options">Trade Options</string>
 </resources>

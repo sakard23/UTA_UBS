@@ -63,6 +63,12 @@
                 android:layout_marginBottom="20dp"
                 />
 
+            <Button
+                android:text="Done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button11" />
+
 
         </LinearLayout>
 

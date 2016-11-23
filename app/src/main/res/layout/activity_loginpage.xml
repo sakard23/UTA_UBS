@@ -25,6 +25,19 @@
         android:layout_marginTop="18dp" />
 
 
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Username"
+        android:ems="8"
+        android:paddingRight="30dp"
+        android:id="@+id/log_in"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
     <Button
         android:id="@+id/login_button"
         android:text="LOG IN"
@@ -35,6 +48,14 @@
         android:layout_below="@+id/Password"
         android:layout_marginTop="10dp"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_button"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        android:text="Not a member? Sign up "
+        android:id="@+id/signup"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -48,45 +69,13 @@
         style="?android:attr/borderlessButtonStyle"
         />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Username"
-        android:ems="8"
-        android:paddingRight="30dp"
-        android:id="@+id/log_in"
-        android:layout_marginTop="119dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/Password" />
-
     <TextView
-        android:text="@string/wc"
+        android:text="UNIVERSITY BAZAAR SYSTEM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:layout_marginTop="11dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView4"
-        android:textSize="18sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:text="Not a member? Sign up "
-        android:id="@+id/signup"
-        android:layout_marginBottom="21dp"
-        android:layout_alignParentBottom="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_above="@+id/signup"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="23dp" />
+        android:layout_alignStart="@+id/log_in" />
 </RelativeLayout>
 
