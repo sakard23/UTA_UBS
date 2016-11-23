@@ -8,16 +8,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class MainActivityPage extends AppCompatActivity {
-
-    //private static Button join_club;
+public class wcpage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_page);
+        setContentView(R.layout.activity_wcpage);
 
-        Button T=(Button)findViewById(R.id.button4);
+        Button T=(Button)findViewById(R.id.button);
         T.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -27,5 +25,7 @@ public class MainActivityPage extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
     }
 }

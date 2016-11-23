@@ -5,4 +5,7 @@
     <string name="join">Join an existing clubs</string>
     <string name="create">Create a new club</string>
     <string name="manage">Manage member\'s club(s)</string>
+    <string name="trade">Trade Page</string>
+    <string name="sell">Sell your items</string>
+    <string name="buy">Buy items</string>
 </resources>
