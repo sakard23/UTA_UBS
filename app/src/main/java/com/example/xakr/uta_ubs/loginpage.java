@@ -26,7 +26,7 @@ public class loginpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginpage);
         //login();
-        //textview = (TextView) findViewById(R.id.textView5);
+        textview = (TextView) findViewById(R.id.textView5);
 
         //////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////wcpage stuff
@@ -34,7 +34,7 @@ public class loginpage extends AppCompatActivity {
 
 
 
-       /* Button loginButton = (Button) findViewById(R.id.login_button);
+       Button loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -44,7 +44,7 @@ public class loginpage extends AppCompatActivity {
                 String pass = "pass";
                 logIn(v, user, pass);
             }
-        });*/
+        });
 
 
     }
