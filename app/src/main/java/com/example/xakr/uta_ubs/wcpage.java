@@ -32,8 +32,8 @@ public class wcpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Intent tradePageIntent = new Intent(getApplicationContext(), tradepage.class);
-                startActivity(tradePageIntent);
+                Intent i = new Intent(getApplicationContext(), tradepage.class);
+                startActivity(i);
             }
         });
         Button V = (Button) findViewById(R.id.button8);

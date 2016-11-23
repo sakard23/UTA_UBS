@@ -10,4 +10,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.xakr.uta_ubs.sellpage">
 
+    <Button
+        android:text="sell page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="109dp"
+        android:layout_marginTop="154dp"
+        android:id="@+id/button2" />
 </RelativeLayout>

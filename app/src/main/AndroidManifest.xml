@@ -27,7 +27,7 @@
         <activity android:name=".sellpage" />
         <activity android:name=".wcpage" />
         <activity android:name=".registerpage" />
-        <activity android:name=".joinpage" />
+        <activity android:name=".joinclub" />
         <activity android:name=".emailpage"/>
     </application>
 

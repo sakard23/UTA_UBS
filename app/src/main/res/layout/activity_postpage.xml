@@ -19,4 +19,22 @@
         android:layout_marginStart="109dp"
         android:layout_marginTop="91dp"
         android:id="@+id/textView2" />
+
+    <Button
+        android:text="write post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginTop="28dp"
+        android:id="@+id/button10" />
+
+    <Button
+        android:text="read post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button10"
+        android:layout_alignStart="@+id/button10"
+        android:layout_marginTop="65dp"
+        android:id="@+id/button11" />
 </RelativeLayout>

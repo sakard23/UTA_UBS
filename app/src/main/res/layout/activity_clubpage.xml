@@ -18,27 +18,6 @@
         android:textSize="18sp" />
 
     <Button
-        android:text="@string/join"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="joinclub"
-        android:id="@+id/joinClubButton"
-        tools:ignore="UnknownId"
-        android:layout_marginBottom="74dp"
-        android:layout_alignBottom="@+id/createClubButton"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="@string/create"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="createclub"
-        android:id="@+id/createClubButton"
-        android:layout_marginBottom="35dp"
-        android:layout_above="@+id/button3"
-        android:layout_alignStart="@+id/joinClubButton" />
-
-    <Button
         android:text="@string/manage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,13 +26,35 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/createClubButton" />
 
+    <Button
+        android:text="@string/create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="createclub"
+        android:id="@+id/create1"
+        android:layout_marginBottom="28dp"
+        android:layout_above="@+id/manageMemberButton"
+        android:layout_alignStart="@+id/joinClubButton" />
+
     <TextView
         android:layout_width="1250sp"
         android:layout_height="35sp"
         android:text="@string/club"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        android:layout_above="@+id/joinClubButton"
+        android:id="@+id/textView"
+        android:layout_below="@+id/textView7"
         android:layout_alignParentStart="true"
-        android:id="@+id/textView" />
+        android:layout_marginTop="50dp" />
+
+    <Button
+        android:text="@string/join"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="joinclub"
+        android:id="@+id/join1"
+        tools:ignore="UnknownId"
+        android:layout_marginBottom="15dp"
+        android:layout_above="@+id/create1"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

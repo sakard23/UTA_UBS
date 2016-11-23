@@ -3,11 +3,11 @@ package com.example.xakr.uta_ubs;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class joinpage extends AppCompatActivity {
+public class joinclub extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_joinpage);
+        setContentView(R.layout.activity_joinclub);
     }
 }

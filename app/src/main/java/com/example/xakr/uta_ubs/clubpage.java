@@ -14,23 +14,31 @@ public class clubpage extends AppCompatActivity {
         setContentView(R.layout.activity_clubpage);
 
 
-        /*Button T=(Button)findViewById(R.id.button);
-        T.setOnClickListener(new View.OnClickListener() {
+        Button J = (Button) findViewById(R.id.join1);
+        J.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Intent i=new Intent(getApplicationContext(),joinclub.class);
+                Intent i = new Intent(getApplicationContext(), joinclub.class);
                 startActivity(i);
-            }*/
-
-
-
-            /*public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Intent j=new Intent(getApplicationContext(),createclub.class);
-                startActivity(j);
             }
-        });*/
+
+
+        });
+
+        Button C = (Button) findViewById(R.id.create1);
+        C.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent i = new Intent(getApplicationContext(), createclub.class);
+                startActivity(i);
+            }
+
+
+        });
     }
 }
+
