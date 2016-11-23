@@ -26,6 +26,5 @@ public class wcpage extends AppCompatActivity {
             }
         });
 
-
     }
 }

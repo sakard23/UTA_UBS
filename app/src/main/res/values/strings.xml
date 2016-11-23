@@ -8,4 +8,7 @@
     <string name="trade">Trade Page</string>
     <string name="sell">Sell your items</string>
     <string name="buy">Buy items</string>
+    <string name="at">Attempts: </string>
+    <string name="post">Public Post </string>
+    <string name="email">Communication </string>
 </resources>

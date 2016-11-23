@@ -18,23 +18,17 @@
         <activity
             android:name=".clubpage"
             android:label="@string/app_name" />
-        <activity android:name=".joinclub" />
         <activity android:name=".createclub" />
-        <activity android:name=".newspage" />
-        <activity android:name=".readnews" />
-        <activity android:name=".writenews" />
+        <activity android:name=".postpage" />
+        <activity android:name=".readpost" />
+        <activity android:name=".writepost" />
         <activity android:name=".tradepage" />
         <activity android:name=".buypage" />
         <activity android:name=".sellpage" />
         <activity android:name=".wcpage" />
         <activity android:name=".registerpage" />
-        <activity android:name=".loginpage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".joinpage" />
+        <activity android:name=".emailpage"/>
     </application>
 
 </manifest>
