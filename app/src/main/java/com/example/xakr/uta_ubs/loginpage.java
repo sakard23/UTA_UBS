@@ -53,6 +53,11 @@ public class loginpage extends AppCompatActivity {
 
     }
 
+
+    public void forgotPassword(View view){
+        Intent intent = new Intent(this,securitypage.class);
+        startActivity(intent);
+    }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////
 
