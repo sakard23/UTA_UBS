@@ -10,6 +10,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.xakr.uta_ubs.loginpage">
 
+
+    <TextView
+        android:text="UNIVERSITY BAZAAR SYSTEM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/log_in" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,14 +28,20 @@
         android:id="@+id/Password"
         android:hint="Password"
 
+        android:layout_marginTop="13dp"
         android:layout_below="@+id/log_in"
-        android:layout_centerHorizontal="true"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_marginTop="18dp" />
+        android:layout_alignStart="@+id/log_in" />
 
-
-
+    <Button
+        android:id="@+id/login_button"
+        android:text="LOG IN"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:onClick="logIn"
+        android:ems="10"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/Password"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -36,46 +52,43 @@
         android:paddingRight="30dp"
         android:id="@+id/log_in"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/login_button" />
 
-    <Button
-        android:id="@+id/login_button"
-        android:text="LOG IN"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:onClick="logIn"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/Password"
-        android:layout_marginTop="10dp"
-        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login_button"
-        android:layout_marginTop="50dp"
         android:layout_marginLeft="50dp"
         android:text="Not a member? Sign up "
-        android:id="@+id/signup"/>
+        android:id="@+id/signup"
+        android:layout_marginEnd="36dp"
+        android:layout_below="@+id/button17"
+        android:layout_alignEnd="@+id/button17" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="here."
+        android:text="here"
         android:onClick="registerUser"
         android:clickable="true"
-        android:layout_toRightOf="@+id/signup"
         android:paddingLeft="-35dp"
-        android:layout_alignBaseline="@+id/signup"
         style="?android:attr/borderlessButtonStyle"
-        android:id="@+id/button15" />
+        android:id="@+id/button15"
+        android:layout_alignBaseline="@+id/signup"
+        android:layout_marginLeft="-38dp"
+        android:layout_alignBottom="@+id/signup"
+        android:layout_toEndOf="@+id/signup" />
 
-    <TextView
-        android:text="UNIVERSITY BAZAAR SYSTEM"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:layout_marginTop="16dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/log_in" />
+        android:textAllCaps="false"
+        android:text="Forgot Password?"
+        android:onClick="forgotPassword"
+        android:clickable="true"
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/button17"
+        android:layout_below="@+id/login_button"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
 
