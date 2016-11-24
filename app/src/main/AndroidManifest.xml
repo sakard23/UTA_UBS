@@ -28,7 +28,8 @@
         <activity android:name=".wcpage" />
         <activity android:name=".registerpage" />
         <activity android:name=".joinclub" />
-        <activity android:name=".emailpage"/>
+        <activity android:name=".emailpage" />
+        <activity android:name=".securitypage"></activity>
     </application>
 
 </manifest>
