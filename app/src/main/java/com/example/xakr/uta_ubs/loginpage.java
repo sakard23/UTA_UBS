@@ -15,9 +15,9 @@ import static android.R.attr.onClick;
 import static com.example.xakr.uta_ubs.R.id.textView;
 
 public class loginpage extends AppCompatActivity {
-
+    DBHelper myDb;
     TextView textview;
-    dbManager myDb=new dbManager(this,null,null,1);
+    //dbManager myDb=new dbManager(this,null,null,1);
    /* private static EditText username;
     private static EditText password;
     private static TextView attempts;
@@ -30,6 +30,7 @@ public class loginpage extends AppCompatActivity {
         setContentView(R.layout.activity_loginpage);
         //login();
         textview = (TextView) findViewById(R.id.textView5);
+        myDb = new DBHelper (this);
 
         //////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////wcpage stuff

@@ -1,10 +1,6 @@
 package com.example.xakr.uta_ubs;
 
 
-/**
- * Created by Sushil on 11/23/2016.
- */
-
 public class User {
     private int _id;
     private String _fisrtName;

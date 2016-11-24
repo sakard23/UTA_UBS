@@ -6,10 +6,6 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by Sushil on 11/23/2016.
- */
-
 public class dbManager extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION=1;

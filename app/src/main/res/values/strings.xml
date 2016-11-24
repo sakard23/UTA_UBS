@@ -15,4 +15,8 @@
     <string name="trade_options">Trade Options</string>
     <string name="university_bazaar_system">University Bazaar System</string>
     <string name="public_post_option">Public Post Option</string>
+    <string name="to">To</string>
+    <string name="sub">Subject</string>
+    <string name="msg">Message</string>
+    <string name="send">Send</string>
 </resources>
