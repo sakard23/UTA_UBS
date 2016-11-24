@@ -9,12 +9,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 import static android.R.attr.onClick;
 import static com.example.xakr.uta_ubs.R.id.textView;
 
 public class loginpage extends AppCompatActivity {
 
     TextView textview;
+    dbManager myDb=new dbManager(this,null,null,1);
    /* private static EditText username;
     private static EditText password;
     private static TextView attempts;
@@ -128,6 +131,9 @@ public class loginpage extends AppCompatActivity {
                 }
         );
     }*/
+
+
+
 }
 
 
