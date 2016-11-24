@@ -29,7 +29,8 @@
         <activity android:name=".registerpage" />
         <activity android:name=".joinclub" />
         <activity android:name=".emailpage" />
-        <activity android:name=".securitypage"></activity>
+        <activity android:name=".securitypage" />
+        <activity android:name=".selectclub"></activity>
     </application>
 
 </manifest>
