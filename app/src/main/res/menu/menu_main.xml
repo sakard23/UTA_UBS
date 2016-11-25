@@ -1,8 +1,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schema.android.com/tools" tools:context="">
+    xmlns:tools="http://schema.android.com/tools" tools:context=".wcpage">
     <item
-        android:id="@+id/action"
-        android:title="Settings"
-        app:showAsAction="always" />
+        android:id="@+id/action_menu"
+        android:title="Menu"
+        app:showAsAction="never" >
+        <menu>
+            <item
+                android:id="@+id/menu_settings"
+                android:title="Settings"/>
+            <item
+                android:id="@+id/menu_logout"
+                android:title="Logout"/>
+        </menu>
+        </item>
 </menu>
+
