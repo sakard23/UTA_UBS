@@ -101,6 +101,14 @@ public class DBHelper extends SQLiteOpenHelper{
         Cursor res = db.rawQuery("select * from "+MEMBER_TABLE_NAME,null);
         return res;
     }
+
+    public Cursor validateUser(String userName){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+MEMBER_TABLE_NAME+" where UNAME = '" + userName+"' ",null);
+        return res;
+    }
+
+
     public Cursor getClubAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "+CLUB_TABLE_NAME,null);

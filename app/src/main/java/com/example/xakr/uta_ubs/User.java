@@ -1,6 +1,6 @@
 package com.example.xakr.uta_ubs;
 
-/*
+
 public class User {
     private int _id;
     private String _fisrtName;
@@ -84,4 +84,3 @@ public class User {
         this._netId = _netId;
     }
 }
-*/
