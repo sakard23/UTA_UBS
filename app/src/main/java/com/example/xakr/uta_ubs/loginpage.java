@@ -56,7 +56,7 @@ public class loginpage extends AppCompatActivity {
                 Toast.makeText(loginpage.this,"Invalid password.", Toast.LENGTH_LONG).show();
             }
         }
-        c.close();//comment
+        c.close();//comments
 
     }
 
