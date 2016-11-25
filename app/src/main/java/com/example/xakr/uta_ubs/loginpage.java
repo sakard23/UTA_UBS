@@ -56,6 +56,7 @@ public class loginpage extends AppCompatActivity {
     public void logIn(View view, String username, String password){
         Intent startWCIntent = new Intent(getApplicationContext(), wcpage.class);
         startActivity(startWCIntent);
+
     }
 
 

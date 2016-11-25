@@ -14,7 +14,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper{
     public static final String DATABASE_NAME= "ubsdb.db";
-    public static final String MEMBER_TABLE_NAME="members_table";
+    public static final String MEMBER_TABLE_NAME="users_table";
     public static final String COL_0="RID";
     public static final String COL_1="FNAME";
     public static final String COL_2="LNAME";
@@ -24,8 +24,7 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String COL_6="UNAME";
     public static final String COL_7="PW";
 
-    //public static final String CLUB_8= "clubCreate.db";
-    //public static final String CLUB_9="clubCreate_table";
+
     public static final String CLUB_TABLE_NAME="club_table";
     public static final String COL_10="CID";
     public static final String COL_11="CLUB_NAME";
@@ -52,8 +51,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //db.execSQL("DROP TABLE IF EXISTS" + MEMBER_TABLE_NAME );
-        //db.execSQL("DROP TABLE IF EXISTS" + CLUB_TABLE_NAME);
+
         db.execSQL("CREATE TABLE " + MEMBER_TABLE_NAME + "(RID INTEGER PRIMARY KEY AUTOINCREMENT, FNAME TEXT, LNAME TEXT, EMAILID TEXT," +
                 "PHNUM TEXT, NETID TEXT, UNAME TEXT, PW TEXT)");
         db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +" (CID INTEGER PRIMARY KEY AUTOINCREMENT,CLUB_NAME TEXT,ADMIN TEXT,FUNCTION TEXT)");

@@ -15,35 +15,10 @@ public class registerpage extends AppCompatActivity {
     EditText editFname,editLname,editEid,editPhnum, editNid, editUname,editPw;//xakr added
     Button btnAddData;//xakr added
 
-   //susil db code
-/*    EditText firstName;
-    EditText lastName;
-    EditText dob;
-    EditText email;
-    EditText phone;
-    EditText userName;
-    EditText password;
-    EditText netId;
-    //dbManager myDb;//susil
-*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registerpage);
-
-        //susil db code
-/*        firstName=(EditText) findViewById(R.id.firstName);
-        lastName=(EditText)findViewById(R.id.lastName);
-        dob=(EditText)findViewById(R.id.dob);
-        email=(EditText)findViewById(R.id.email);
-        netId=(EditText)findViewById(R.id.netId);
-        phone=(EditText)findViewById(R.id.phone);
-        userName=(EditText)findViewById(R.id.userName);
-        password=(EditText)findViewById(R.id.password);
-*/
-
-        //myDb=(dbManager) getIntent().getSerializableExtra("myDb");//susil
 
         //myDb=new DBHelper(this); //xakr added
         myDb = DBHelper.getInstance(this.getApplicationContext());
@@ -79,19 +54,5 @@ public class registerpage extends AppCompatActivity {
                 }
         );
     }
-/*//susil
-    public void createAccount(){
-        User user=new User();
-        user.set_fisrtName(firstName.getText().toString());
-        user.set_lastName(lastName.getText().toString());
-        user.set_dob(dob.getText().toString());
-        user.set_email(email.getText().toString());
-        user.set_phone(phone.getText().toString());
-        user.set_userName(userName.getText().toString());
-        user.set_password(password.getText().toString());
-        user.set_netId(netId.getText().toString());
-        myDb.addUser(user);
-    }
-*/
 
 }
