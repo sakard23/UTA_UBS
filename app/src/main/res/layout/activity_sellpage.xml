@@ -24,8 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
+        android:ems="4"
         android:id="@+id/editText"
         android:layout_alignBaseline="@+id/textView10"
         android:layout_alignBottom="@+id/textView10"
@@ -35,18 +34,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Number, Email, Location"
         android:ems="10"
         android:id="@+id/editText5"
         android:layout_below="@+id/editText4"
         android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/editText4" />
+        android:layout_alignStart="@+id/editText4"
+        android:hint="Phone number" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Price"
         android:ems="10"
         android:id="@+id/editText3"
         android:layout_alignBaseline="@+id/textView14"
@@ -57,7 +55,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Color, Size..."
         android:ems="10"
         android:id="@+id/editText4"
         android:layout_below="@+id/editText3"

@@ -24,12 +24,22 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String COL_6="UNAME";
     public static final String COL_7="PW";
 
+    public static final String CLUB_DATABASE_NAME= "clubCreate.db";
+    public static final String CLUB_TABLE_NAME="clubCreate_table";
+    public static final String COL_Cid="CID";
+    public static final String COL_Cname="CLUB_NAME";
+    public static final String COL_Admin="ADMIN";
+    public static final String COL_Pur="PURPOSE";
+
+
 
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
+
         //SQLiteDatabase db= this.getWritableDatabase();//remove line for insertion line code
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
