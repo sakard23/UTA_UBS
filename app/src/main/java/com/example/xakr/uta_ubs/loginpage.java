@@ -17,7 +17,7 @@ import static com.example.xakr.uta_ubs.R.id.textView;
 public class loginpage extends AppCompatActivity {
     //DBHelper myDb;
     TextView textview;
-    dbManager myDb=new dbManager(this,null,null,1);
+    //dbManager myDb=new dbManager(this,null,null,1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

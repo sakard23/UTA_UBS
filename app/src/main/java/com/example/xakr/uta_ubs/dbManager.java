@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
+/*
 public class dbManager extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION=1;
@@ -63,3 +63,4 @@ public class dbManager extends SQLiteOpenHelper {
     }
 }
 
+*/

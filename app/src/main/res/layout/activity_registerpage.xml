@@ -46,18 +46,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Date of Birth"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="datetime"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
-                android:id="@+id/dob"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:text="Email"/>
             <EditText
                 android:layout_width="match_parent"
@@ -67,6 +55,19 @@
                 android:layout_marginBottom="20dp"
                 android:id="@+id/email"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone number"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/phone"
+                />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,18 +81,7 @@
                 android:id="@+id/netId"
                 />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Phone number"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
-                android:id="@+id/phone"
-                />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,8 +89,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
                 android:layout_marginTop="5dp"
-                android:inputType="textPassword"
                 android:layout_marginBottom="20dp"
                 android:id="@+id/userName"
                 />
