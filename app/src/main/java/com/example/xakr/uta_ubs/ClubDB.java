@@ -15,8 +15,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ClubDB extends SQLiteOpenHelper{
 
-    public static final String DATABASE_NAME = "NewClub.db";
-    public static final String TABLE_NAME = "NewClub_table";
+    public static final String DATABASE_NAME = "members.db";
+    public static final String TABLE_NAME = "members_table";
     public static final String COL_1 = "CID";
     public static final String COL_2 = "CLUB_NAME";
     public static final String COL_3 = "ADMIN";

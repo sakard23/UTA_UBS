@@ -45,7 +45,8 @@ public class registerpage extends AppCompatActivity {
 
         //myDb=(dbManager) getIntent().getSerializableExtra("myDb");//susil
 
-        myDb=new DBHelper(this); //xakr added
+        //myDb=new DBHelper(this); //xakr added
+        myDb = DBHelper.getInstance(this.getApplicationContext());
 
         editFname=(EditText)findViewById(R.id.firstName);//xakr added
         editLname=(EditText)findViewById(R.id.lastName);//xakr added
@@ -65,7 +66,7 @@ public class registerpage extends AppCompatActivity {
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
-                        boolean isInserted=myDb.insertData(editFname.getText().toString(),
+                        boolean isInserted=myDb.insertMemberData(editFname.getText().toString(),
                                 editLname.getText().toString(),editEid.getText().toString(),
                                 editPhnum.getText().toString(),editNid.getText().toString(),
                                 editUname.getText().toString(),editPw.getText().toString());

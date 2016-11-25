@@ -3,6 +3,8 @@ package com.example.xakr.uta_ubs;
 
 import android.app.AlertDialog;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,21 +14,24 @@ import android.widget.Toast;
 
 public class createclub extends AppCompatActivity {
 
-    ClubDB myDb;
-    EditText editCname,editAdimn,editFunc ,editTextId;
+    DBHelper myDb;
+    EditText editCname,editAdmin,editFunc ,editTextId;
     Button btnAddData;
     Button btnviewAll;
     Button btnDelete;
-
+    //boolean check = checkDataBase();
     Button btnviewUpdate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createclub);
-        myDb = new ClubDB(this);
+
+        //create new database connection
+        myDb = DBHelper.getInstance(this.getApplicationContext());
+        //myDb.onCreate();
 
         editCname = (EditText)findViewById(R.id.select);
-        editAdimn = (EditText)findViewById(R.id.admin);
+        editAdmin = (EditText)findViewById(R.id.admin);
         editFunc = (EditText)findViewById(R.id.func);
         editTextId = (EditText)findViewById(R.id.id);
         btnAddData = (Button)findViewById(R.id.send10);
@@ -38,12 +43,13 @@ public class createclub extends AppCompatActivity {
         UpdateData();
         DeleteData();
     }
+
     public void DeleteData() {
         btnDelete.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Integer deletedRows = myDb.deleteData(editTextId.getText().toString());
+                        Integer deletedRows = myDb.deleteClubData(editTextId.getText().toString());
                         if(deletedRows > 0)
                             Toast.makeText(createclub.this,"Club Deleted",Toast.LENGTH_LONG).show();
                         else
@@ -57,9 +63,9 @@ public class createclub extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean isUpdate = myDb.updateData(editTextId.getText().toString(),
+                        boolean isUpdate = myDb.updateClubData(editTextId.getText().toString(),
                                 editCname.getText().toString(),
-                                editAdimn.getText().toString(),editFunc.getText().toString());
+                                editAdmin.getText().toString(),editFunc.getText().toString());
                         if(isUpdate == true)
                             Toast.makeText(createclub.this,"Club Details Update",Toast.LENGTH_LONG).show();
                         else
@@ -73,8 +79,8 @@ public class createclub extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean isInserted = myDb.insertData(editCname.getText().toString(),
-                                editAdimn.getText().toString(),
+                        boolean isInserted = myDb.insertClubData(editCname.getText().toString(),
+                                editAdmin.getText().toString(),
                                 editFunc.getText().toString() );
                         if(isInserted == true)
                             Toast.makeText(createclub.this,"Club Formed",Toast.LENGTH_LONG).show();
@@ -90,7 +96,7 @@ public class createclub extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Cursor res = myDb.getAllData();
+                        Cursor res = myDb.getClubAllData();
                         if(res.getCount() == 0) {
                             // show message
                             showMessage("Error","Nothing found");
