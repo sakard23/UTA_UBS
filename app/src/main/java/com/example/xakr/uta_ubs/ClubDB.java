@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
-
+/*
 
 public class ClubDB extends SQLiteOpenHelper{
 
@@ -71,4 +71,4 @@ public class ClubDB extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME, "ID = ?",new String[] {id});
     }
-}
+}*/
