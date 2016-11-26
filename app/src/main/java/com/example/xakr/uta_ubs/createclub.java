@@ -3,8 +3,6 @@ package com.example.xakr.uta_ubs;
 
 import android.app.AlertDialog;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -44,36 +42,6 @@ public class createclub extends AppCompatActivity {
         DeleteData();
     }
 
-    public void DeleteData() {
-        btnDelete.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Integer deletedRows = myDb.deleteClubData(editTextId.getText().toString());
-                        if(deletedRows > 0)
-                            Toast.makeText(createclub.this,"Club Deleted",Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(createclub.this,"Please Enter Valaid Club ID",Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
-    }
-    public void UpdateData() {
-        btnviewUpdate.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        boolean isUpdate = myDb.updateClubData(editTextId.getText().toString(),
-                                editCname.getText().toString(),
-                                editAdmin.getText().toString(),editFunc.getText().toString());
-                        if(isUpdate == true)
-                            Toast.makeText(createclub.this,"Club Details Update",Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(createclub.this,"Club Details not Updated",Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
-    }
     public  void AddData() {
         btnAddData.setOnClickListener(
                 new View.OnClickListener() {
@@ -113,6 +81,38 @@ public class createclub extends AppCompatActivity {
 
                         // Show all data
                         showMessage("Data",buffer.toString());
+                    }
+                }
+        );
+    }
+
+    public void UpdateData() {
+        btnviewUpdate.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        boolean isUpdate = myDb.updateClubData(editTextId.getText().toString(),
+                                editCname.getText().toString(),
+                                editAdmin.getText().toString(),editFunc.getText().toString());
+                        if(isUpdate == true)
+                            Toast.makeText(createclub.this,"Club Details Update",Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(createclub.this,"Club Details not Updated",Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+    }
+
+    public void DeleteData() {
+        btnDelete.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Integer deletedRows = myDb.deleteClubData(editTextId.getText().toString());
+                        if(deletedRows > 0)
+                            Toast.makeText(createclub.this,"Club Deleted",Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(createclub.this,"Please Enter Valaid Club ID",Toast.LENGTH_LONG).show();
                     }
                 }
         );

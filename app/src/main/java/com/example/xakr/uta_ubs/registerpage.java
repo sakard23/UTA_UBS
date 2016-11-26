@@ -47,9 +47,9 @@ public class registerpage extends AppCompatActivity {
                                 editUname.getText().toString(),editPw.getText().toString(),
                                 editSq.getText().toString());
                         if (isInserted==true)
-                            Toast.makeText(registerpage.this,"data inserted", Toast.LENGTH_LONG).show();
+                            Toast.makeText(registerpage.this,"Registration Successful", Toast.LENGTH_LONG).show();
                         else
-                            Toast.makeText(registerpage.this,"data not inserted", Toast.LENGTH_LONG).show();
+                            Toast.makeText(registerpage.this,"Error occured while Registration. Please Try Again", Toast.LENGTH_LONG).show();
 
                     }
                 }

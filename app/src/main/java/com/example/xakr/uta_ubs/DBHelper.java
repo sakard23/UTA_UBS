@@ -32,6 +32,23 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String COL_12="ADMIN";
     public static final String COL_13="FUNCTION";
 
+
+    public static final String TRADE_TABLE_NAME="trade_table";
+    public static final String COL_ITID="ITID";
+    public static final String COL_ITNAME="ITNAME";
+    public static final String COL_PRICE="PRICE";
+    public static final String COL_INFO="INFO";
+    public static final String COL_EID="EID";
+    public static final String COL_PHNUM="PHNUM";
+    public static final String COL_FOTO="FOTO";
+
+
+    public static final String POST_TABLE_NAME="post_table";
+    public static final String COL_PID="PID";
+    public static final String COL_WNAME="WNAME";
+    public static final String COL_SUB="SUB";
+    //public static final String COL_ABOUT="ABOUT";
+
     private static DBHelper INSTANCE= null;
     private Context context;
 
@@ -56,12 +73,17 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("CREATE TABLE " + MEMBER_TABLE_NAME + "(RID INTEGER PRIMARY KEY AUTOINCREMENT, FNAME TEXT, LNAME TEXT, EMAILID TEXT," +
                 "PHNUM TEXT, NETID TEXT, UNAME TEXT, PW TEXT, SQ TEXT)");
         db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +" (CID INTEGER PRIMARY KEY AUTOINCREMENT,CLUB_NAME TEXT,ADMIN TEXT,FUNCTION TEXT)");
+        db.execSQL("CREATE TABLE " + TRADE_TABLE_NAME + "(ITID INTEGER PRIMARY KEY AUTOINCREMENT, ITNAME TEXT, PRICE TEXT, INFO TEXT," +
+                "EID TEXT, PHNUM TEXT, FOTO TEXT)");
+        db.execSQL("CREATE TABLE " + POST_TABLE_NAME +" (PID INTEGER PRIMARY KEY AUTOINCREMENT,WNAME TEXT,SUB TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + MEMBER_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + CLUB_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TRADE_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + POST_TABLE_NAME);
         onCreate(db);
     }
 
@@ -84,6 +106,7 @@ public class DBHelper extends SQLiteOpenHelper{
             return true;
         }
     }
+
     public boolean insertClubData(String cname,String admin,String func) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -96,10 +119,36 @@ public class DBHelper extends SQLiteOpenHelper{
         else
             return true;
     }
-    public Cursor getMemberAllData() {
+
+    public boolean insertTradeData(String itname, String price, String info, String eid, String phnum, String foto) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+MEMBER_TABLE_NAME,null);
-        return res;
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_ITNAME, itname);
+        contentValues.put(COL_PRICE, price);
+        contentValues.put(COL_INFO, info);
+        contentValues.put(COL_EID, eid);
+        contentValues.put(COL_PHNUM, phnum);
+        contentValues.put(COL_FOTO, foto);
+
+        long result = db.insert(TRADE_TABLE_NAME, null, contentValues);
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean insertPostData(String wname,String sub) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_WNAME,wname);
+        contentValues.put(COL_SUB,sub);
+        //contentValues.put(COL_13,info);
+        long result = db.insert(POST_TABLE_NAME, null ,contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
     }
 
     public Cursor validateUser(String userName){
@@ -115,39 +164,72 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
 
-
     public Cursor getClubAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "+CLUB_TABLE_NAME,null);
         return res;
     }
-    public boolean updateMemberData(String cid,String cname,String admin,String func) {
+
+    public Cursor getTradeAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        //contentValues.put(COL_10,cid);
-        contentValues.put(COL_11,cname);
-        contentValues.put(COL_12,admin);
-        contentValues.put(COL_13,func);
-        db.update(MEMBER_TABLE_NAME, contentValues, "ID = ?",new String[] { cid });
-        return true;
+        Cursor res = db.rawQuery("select * from "+TRADE_TABLE_NAME,null);
+        return res;
     }
+
+    public Cursor getPostAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+POST_TABLE_NAME,null);
+        return res;
+    }
+
     public boolean updateClubData(String cid,String cname,String admin,String func) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        //contentValues.put(COL_10,cid);
+        contentValues.put(COL_10,cid);
         contentValues.put(COL_11,cname);
         contentValues.put(COL_12,admin);
         contentValues.put(COL_13,func);
-        db.update(CLUB_TABLE_NAME, contentValues, "ID = ?",new String[] { cid });
+        db.update(CLUB_TABLE_NAME, contentValues, "CID = ?",new String[] { cid });
         return true;
     }
-    public Integer deleteMemberData (String id) {
+
+    public boolean updateTradeData(String itid,String itname,String price,String info,String eid,String phnum,String foto) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(MEMBER_TABLE_NAME, "ID = ?",new String[] {id});
-    }
-    public Integer deleteClubData (String id) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(CLUB_TABLE_NAME, "ID = ?",new String[] {id});
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COL_ITID,itid);
+        contentValues.put(COL_ITNAME,itname);
+        contentValues.put(COL_PRICE,price);
+        contentValues.put(COL_INFO,info);
+        contentValues.put(COL_EID,eid);
+        contentValues.put(COL_PHNUM,phnum);
+        contentValues.put(COL_FOTO,foto);
+        db.update(CLUB_TABLE_NAME, contentValues, "ITID = ?",new String[] { itid });
+        return true;
     }
 
+    public boolean updatePostData(String pid,String sub) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_PID,pid);
+        //contentValues.put(COL_11,wname);
+        contentValues.put(COL_12,sub);
+        //contentValues.put(COL_13,about);
+        db.update(POST_TABLE_NAME, contentValues, "PID = ?",new String[] { pid });
+        return true;
+    }
+
+    public Integer deleteClubData (String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(CLUB_TABLE_NAME, "CID = ?",new String[] {id});
+    }
+
+    public Integer deleteTradeData (String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TRADE_TABLE_NAME, "ITID = ?",new String[] {id});
+    }
+    public Integer deletePostData (String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TRADE_TABLE_NAME, "PID = ?",new String[] {id});
+    }
 }

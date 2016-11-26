@@ -38,8 +38,6 @@ public class clubpage extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), createclub.class);
                 startActivity(i);
             }
-
-
         });
     }
 
