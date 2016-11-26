@@ -23,6 +23,7 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String COL_5="NETID";
     public static final String COL_6="UNAME";
     public static final String COL_7="PW";
+    public static final String COL_8="SQ";
 
 
     public static final String CLUB_TABLE_NAME="club_table";
@@ -53,7 +54,7 @@ public class DBHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL("CREATE TABLE " + MEMBER_TABLE_NAME + "(RID INTEGER PRIMARY KEY AUTOINCREMENT, FNAME TEXT, LNAME TEXT, EMAILID TEXT," +
-                "PHNUM TEXT, NETID TEXT, UNAME TEXT, PW TEXT)");
+                "PHNUM TEXT, NETID TEXT, UNAME TEXT, PW TEXT, SQ TEXT)");
         db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +" (CID INTEGER PRIMARY KEY AUTOINCREMENT,CLUB_NAME TEXT,ADMIN TEXT,FUNCTION TEXT)");
     }
 
@@ -64,7 +65,7 @@ public class DBHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
-    public boolean insertMemberData(String fname, String lname, String eid, String phnum, String netid, String uname, String pw ) {
+    public boolean insertMemberData(String fname, String lname, String eid, String phnum, String netid, String uname, String pw,String sq ) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1, fname);
@@ -74,6 +75,7 @@ public class DBHelper extends SQLiteOpenHelper{
         contentValues.put(COL_5, netid);
         contentValues.put(COL_6, uname);
         contentValues.put(COL_7, pw);
+        contentValues.put(COL_8,sq);
 
         long result = db.insert(MEMBER_TABLE_NAME, null, contentValues);
         if (result == -1) {
@@ -105,6 +107,13 @@ public class DBHelper extends SQLiteOpenHelper{
         Cursor res = db.rawQuery("select * from "+MEMBER_TABLE_NAME+" where UNAME = '" + userName+"' ",null);
         return res;
     }
+
+    public Cursor getEmail(String netId){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+MEMBER_TABLE_NAME+" where NETID = '" + netId+"' ",null);
+        return res;
+    }
+
 
 
     public Cursor getClubAllData() {

@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class registerpage extends AppCompatActivity {
 
     DBHelper myDb;//xakr added
-    EditText editFname,editLname,editEid,editPhnum, editNid, editUname,editPw;//xakr added
+    EditText editFname,editLname,editEid,editPhnum, editNid, editUname,editPw,editSq;//xakr added
     Button btnAddData;//xakr added
 
     @Override
@@ -30,7 +30,7 @@ public class registerpage extends AppCompatActivity {
         editNid=(EditText)findViewById(R.id.netId);//xakr added
         editUname=(EditText)findViewById(R.id.userName);//xakr added
         editPw=(EditText)findViewById(R.id.password);//xakr added
-
+        editSq=(EditText)findViewById(R.id.sq);
         btnAddData=(Button)findViewById(R.id.button10);//xakr added
         AddData(); //xakr added
     }
@@ -44,7 +44,8 @@ public class registerpage extends AppCompatActivity {
                         boolean isInserted=myDb.insertMemberData(editFname.getText().toString(),
                                 editLname.getText().toString(),editEid.getText().toString(),
                                 editPhnum.getText().toString(),editNid.getText().toString(),
-                                editUname.getText().toString(),editPw.getText().toString());
+                                editUname.getText().toString(),editPw.getText().toString(),
+                                editSq.getText().toString());
                         if (isInserted==true)
                             Toast.makeText(registerpage.this,"data inserted", Toast.LENGTH_LONG).show();
                         else

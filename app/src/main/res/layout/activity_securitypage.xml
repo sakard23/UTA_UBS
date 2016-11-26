@@ -14,14 +14,44 @@
         android:layout_centerHorizontal="true" />
 
 
-    <TextView
-        android:text="Security Question"
+    <Button
+        android:text="Done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView9"
-        android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+        android:id="@+id/done"
+        android:onClick="security"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="NetID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView13"
+        android:layout_alignBottom="@+id/sec_ques"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp" />
+
+    <TextView
+        android:text="What is your favorite food?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView10"
+        android:layout_below="@+id/textView13"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Type here"
+        android:ems="10"
+        android:id="@+id/sq"
+        android:layout_alignBaseline="@+id/textView10"
+        android:layout_alignBottom="@+id/textView10"
+        android:layout_toEndOf="@+id/textView10"
+        android:layout_marginStart="16dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -31,27 +61,9 @@
         android:ems="8"
         android:paddingRight="30dp"
         android:id="@+id/sec_ques"
-        android:layout_above="@+id/button16"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp" />
-
-    <Button
-        android:text="Done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button16"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:text="Please enter your NetID. A new password will be sent to your email address associated with this ID."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:id="@+id/textView13"
-        android:layout_below="@+id/textView9"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="19dp" />
+        android:layout_marginTop="73dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignEnd="@+id/done" />
 
 
 </RelativeLayout>
