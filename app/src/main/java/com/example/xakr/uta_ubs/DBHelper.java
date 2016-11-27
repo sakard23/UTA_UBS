@@ -13,6 +13,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class DBHelper extends SQLiteOpenHelper{
+
+    public static Cursor userCursor;
     public static final String DATABASE_NAME= "ubsdb.db";
     public static final String MEMBER_TABLE_NAME="users_table";
     public static final String COL_0="RID";
@@ -45,7 +47,8 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public static final String POST_TABLE_NAME="post_table";
     public static final String COL_PID="PID";
-    public static final String COL_WNAME="WNAME";
+    public static final String COL_FNAME="FNAME";
+    public static final String COL_LNAME="LNAME";
     public static final String COL_SUB="SUB";
     //public static final String COL_ABOUT="ABOUT";
 
@@ -70,12 +73,12 @@ public class DBHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE TABLE " + MEMBER_TABLE_NAME + "(RID INTEGER PRIMARY KEY AUTOINCREMENT, FNAME TEXT, LNAME TEXT, EMAILID TEXT," +
-                "PHNUM TEXT, NETID TEXT, UNAME TEXT, PW TEXT, SQ TEXT)");
-        db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +" (CID INTEGER PRIMARY KEY AUTOINCREMENT,CLUB_NAME TEXT,ADMIN TEXT,FUNCTION TEXT)");
-        db.execSQL("CREATE TABLE " + TRADE_TABLE_NAME + "(ITID INTEGER PRIMARY KEY AUTOINCREMENT, ITNAME TEXT, PRICE TEXT, INFO TEXT," +
-                "EID TEXT, PHNUM TEXT, FOTO TEXT)");
-        db.execSQL("CREATE TABLE " + POST_TABLE_NAME +" (PID INTEGER PRIMARY KEY AUTOINCREMENT,WNAME TEXT,SUB TEXT)");
+        db.execSQL("CREATE TABLE " + MEMBER_TABLE_NAME +"(RID INTEGER PRIMARY KEY AUTOINCREMENT, FNAME TEXT, LNAME TEXT, EMAILID TEXT," +
+                " PHNUM TEXT, NETID TEXT, UNAME TEXT, PW TEXT, SQ TEXT)");
+//        db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +"(CID INTEGER PRIMARY KEY AUTOINCREMENT, CLUB_NAME TEXT, ADMIN TEXT, FUNCTION TEXT)");
+        db.execSQL("CREATE TABLE " + TRADE_TABLE_NAME +"(ITID INTEGER PRIMARY KEY AUTOINCREMENT, ITNAME TEXT, PRICE TEXT, INFO TEXT," +
+                " EID TEXT, PHNUM TEXT, FOTO TEXT)");
+        db.execSQL("CREATE TABLE " + POST_TABLE_NAME +"(PID INTEGER PRIMARY KEY AUTOINCREMENT, FNAME TEXT, LNAME TEXT, SUB TEXT)");
     }
 
     @Override
@@ -138,10 +141,11 @@ public class DBHelper extends SQLiteOpenHelper{
         }
     }
 
-    public boolean insertPostData(String wname,String sub) {
+    public boolean insertPostData(String fname,String lname,String sub) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_WNAME,wname);
+        contentValues.put(COL_FNAME,fname);
+        contentValues.put(COL_LNAME,lname);
         contentValues.put(COL_SUB,sub);
         //contentValues.put(COL_13,info);
         long result = db.insert(POST_TABLE_NAME, null ,contentValues);
@@ -150,6 +154,16 @@ public class DBHelper extends SQLiteOpenHelper{
         else
             return true;
     }
+
+    public void setUser(String userName){
+        SQLiteDatabase db = this.getWritableDatabase();
+        this.userCursor = db.rawQuery("select * from "+MEMBER_TABLE_NAME+" where UNAME = '" + userName+"' ",null);
+    }
+
+    public Cursor getUser(){
+        return (this.userCursor);
+    }
+
 
     public Cursor validateUser(String userName){
         SQLiteDatabase db = this.getWritableDatabase();

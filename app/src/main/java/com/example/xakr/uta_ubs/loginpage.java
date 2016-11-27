@@ -49,7 +49,8 @@ public class loginpage extends AppCompatActivity {
         }
         if(c.moveToFirst()){
             if(password.equals(c.getString(c.getColumnIndex("PW")))){
-                Intent startWCIntent = new Intent(getApplicationContext(), wcpage.class);
+                myDb.setUser(username);
+                Intent startWCIntent = new Intent(getApplicationContext(), postpage.class);
                 startActivity(startWCIntent);
             }
             else{

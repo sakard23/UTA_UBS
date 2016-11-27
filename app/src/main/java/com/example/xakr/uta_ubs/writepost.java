@@ -39,13 +39,13 @@ public class writepost extends AppCompatActivity {
         btnviewAll = (Button)findViewById(R.id.show);
         btnviewUpdate= (Button)findViewById(R.id.update);
         btnDelete= (Button)findViewById(R.id.delete);
-        AddData();
+        //AddData();
         viewAll();
         UpdateData();
         DeleteData();
     }
 
-    public void AddData() {
+   /* public void AddData() {
         btnAddData.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -59,7 +59,7 @@ public class writepost extends AppCompatActivity {
                     }
                 }
         );
-    }
+    }*/
 
     public void viewAll() {
         btnviewAll.setOnClickListener(
