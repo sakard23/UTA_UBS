@@ -18,10 +18,10 @@ public class postpage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_postpage);
+        setContentView(R.layout.activity_publicpostoption);
         myDb = DBHelper.getInstance(this.getApplicationContext());
-        readPost();
-        /*Button write = (Button) findViewById(R.id.button10);
+        //readPost();
+        Button write = (Button) findViewById(R.id.button13);
         write.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -34,7 +34,7 @@ public class postpage extends AppCompatActivity {
 
         });
 
-        Button read = (Button) findViewById(R.id.button11);
+        Button read = (Button) findViewById(R.id.button12);
         read.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -45,17 +45,17 @@ public class postpage extends AppCompatActivity {
             }
 
 
-        });*/
+        });
 
 
     }
 
-    /*public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main,menu);
         return true;
-    }*/
-
+    }
+/*
     public void createPost(View view){
         post=(EditText) findViewById(R.id.create);
         String message=post.getText().toString();
@@ -77,4 +77,5 @@ public class postpage extends AppCompatActivity {
         }
         viewPost.setText(message);
     }
+    */
 }

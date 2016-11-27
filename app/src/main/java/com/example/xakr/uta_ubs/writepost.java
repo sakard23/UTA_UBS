@@ -35,23 +35,22 @@ public class writepost extends AppCompatActivity {
         editWname = (EditText)findViewById(R.id.wname);
         editSub = (EditText)findViewById(R.id.sub);
         editPid = (EditText)findViewById(R.id.id);
-        btnAddData = (Button)findViewById(R.id.post);
+        btnAddData = (Button)findViewById(R.id.post01);
         btnviewAll = (Button)findViewById(R.id.show);
         btnviewUpdate= (Button)findViewById(R.id.update);
         btnDelete= (Button)findViewById(R.id.delete);
-        //AddData();
+        AddData();
         viewAll();
         UpdateData();
         DeleteData();
     }
 
-   /* public void AddData() {
+   public void AddData() {
         btnAddData.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean isInserted = myDb.insertPostData(editWname.getText().toString(),
-                                editSub.getText().toString());
+                        boolean isInserted = myDb.insertPostData(editWname.getText().toString(),editSub.getText().toString());
                         if(isInserted == true)
                             Toast.makeText(writepost.this,"Your Message is Posted on a Public Tradeboard",Toast.LENGTH_LONG).show();
                         else
@@ -59,7 +58,7 @@ public class writepost extends AppCompatActivity {
                     }
                 }
         );
-    }*/
+    }
 
     public void viewAll() {
         btnviewAll.setOnClickListener(
@@ -93,7 +92,8 @@ public class writepost extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean isUpdate = myDb.updatePostData(editPid.getText().toString(),editSub.getText().toString());
+                        boolean isUpdate = myDb.updatePostData(editPid.getText().toString(),editWname.getText().toString(),
+                                editSub.getText().toString());
                         if(isUpdate == true)
                             Toast.makeText(writepost.this,"Message Updated",Toast.LENGTH_LONG).show();
                         else

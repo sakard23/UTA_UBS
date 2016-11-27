@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class createclub extends AppCompatActivity {
 
     DBHelper myDb;
-    EditText editCname,editAdmin,editFunc ,editTextId;
+    EditText editCname,editAdmin,editFunc,editTextId;
     Button btnAddData;
     Button btnviewAll;
     Button btnDelete;
