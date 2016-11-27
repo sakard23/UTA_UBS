@@ -105,7 +105,7 @@ public class sellpage extends AppCompatActivity {
                             buffer.append("Details :"+ res.getString(3)+"\n");
                             buffer.append("Email ID :"+ res.getString(4)+"\n");
                             buffer.append("Phone Number :"+ res.getString(5)+"\n");
-                            image.append("Photo :"+ res.getBlob(6)+"\n\n");
+                            buffer.append("Photo :"+ res.getBlob(6)+"\n\n");
                         }
 
                         // Show all data
@@ -123,7 +123,7 @@ public class sellpage extends AppCompatActivity {
                         boolean isUpdate = myDb.updateTradeData(editItid.getText().toString(),editItname.getText().toString(),
                                 editPrice.getText().toString(), editInfo.getText().toString(),
                                 editEid.getText().toString(),
-                                editPhnum.getText().toString(), editPhoto.getText().toString());
+                                editPhnum.getText().toString(), byteArray);
                         if(isUpdate == true)
                             Toast.makeText(sellpage.this,"Item Details Update",Toast.LENGTH_LONG).show();
                         else
