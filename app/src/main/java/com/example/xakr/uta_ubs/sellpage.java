@@ -1,13 +1,26 @@
 package com.example.xakr.uta_ubs;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.ThumbnailUtils;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
+
+import static android.R.attr.bitmap;
+import static android.R.attr.width;
+import static com.example.xakr.uta_ubs.R.attr.height;
 
 public class sellpage extends AppCompatActivity {
 
@@ -16,8 +29,13 @@ public class sellpage extends AppCompatActivity {
     Button btnAddData;//xakr added
     Button btnviewAll;
     Button btnDelete;
+    ImageView imgView;
 
     Button btnviewUpdate;
+
+    private static int RESULT_LOAD_IMG=1;
+    String imgDecodableString;
+    byte[] byteArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +50,7 @@ public class sellpage extends AppCompatActivity {
         editInfo=(EditText)findViewById(R.id.editText4);//xakr added
         editEid=(EditText)findViewById(R.id.editText5);//xakr added
         editPhnum=(EditText)findViewById(R.id.editText2);//xakr added
-        editPhoto=(EditText)findViewById(R.id.editText6);//xakr added
+        //editPhoto=(EditText)findViewById(R.id.editText6);//xakr added
 
         //editDetails=(EditText)findViewById(R.id.editText4);
 
@@ -55,7 +73,7 @@ public class sellpage extends AppCompatActivity {
                         boolean isInserted = myDb.insertTradeData(editItname.getText().toString(),
                                 editPrice.getText().toString(), editInfo.getText().toString(),
                                 editEid.getText().toString(),
-                                editPhnum.getText().toString(), editPhoto.getText().toString());
+                                editPhnum.getText().toString(), byteArray);
                         if (isInserted == true)
                             Toast.makeText(sellpage.this, "Item posted into Tradeboard List", Toast.LENGTH_LONG).show();
                         else
@@ -79,6 +97,7 @@ public class sellpage extends AppCompatActivity {
                         }
 
                         StringBuffer buffer = new StringBuffer();
+                        byte[] image;
                         while (res.moveToNext()) {
                             buffer.append("Item Id :"+ res.getString(0)+"\n");
                             buffer.append("Item Name :"+ res.getString(1)+"\n");
@@ -86,7 +105,7 @@ public class sellpage extends AppCompatActivity {
                             buffer.append("Details :"+ res.getString(3)+"\n");
                             buffer.append("Email ID :"+ res.getString(4)+"\n");
                             buffer.append("Phone Number :"+ res.getString(5)+"\n");
-                            buffer.append("Photo :"+ res.getString(6)+"\n\n");
+                            buffer.append("Photo :"+ res.getBlob(6)+"\n\n");
                         }
 
                         // Show all data
@@ -104,7 +123,7 @@ public class sellpage extends AppCompatActivity {
                         boolean isUpdate = myDb.updateTradeData(editItid.getText().toString(),editItname.getText().toString(),
                                 editPrice.getText().toString(), editInfo.getText().toString(),
                                 editEid.getText().toString(),
-                                editPhnum.getText().toString(), editPhoto.getText().toString());
+                                editPhnum.getText().toString(), byteArray);
                         if(isUpdate == true)
                             Toast.makeText(sellpage.this,"Item Details Update",Toast.LENGTH_LONG).show();
                         else
@@ -137,4 +156,51 @@ public class sellpage extends AppCompatActivity {
         builder.setMessage(Message);
         builder.show();
     }
+
+    public void uploadPhoto(View view){
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try {
+            // When an Image is picked
+            if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK
+                    && null != data) {
+                // Get the Image from data
+
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+                // Get the cursor
+                Cursor cursor = getContentResolver().query(selectedImage,filePathColumn, null, null, null);
+                // Move to first row
+                cursor.moveToFirst();
+
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                imgDecodableString = cursor.getString(columnIndex);
+                cursor.close();
+                imgView = (ImageView) findViewById(R.id.imageView);
+                // Set the Image in ImageView after decoding the String
+
+                Bitmap bitmap=BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage));
+                imgView.setImageBitmap(BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage)));
+                ByteArrayOutputStream stream=new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
+                byteArray=stream.toByteArray();
+
+
+            } else {
+                Toast.makeText(this, "You haven't picked Image",
+                        Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG)
+                    .show();
+
+
+        }
+    }
+
 }

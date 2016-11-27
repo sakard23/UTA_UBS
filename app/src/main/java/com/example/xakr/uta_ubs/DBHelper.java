@@ -77,7 +77,7 @@ public class DBHelper extends SQLiteOpenHelper{
                 " PHNUM TEXT, NETID TEXT, UNAME TEXT, PW TEXT, SQ TEXT)");
         db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +"(CID INTEGER PRIMARY KEY AUTOINCREMENT, CLUB_NAME TEXT, ADMIN TEXT, FUNCTION TEXT)");
         db.execSQL("CREATE TABLE " + TRADE_TABLE_NAME +"(ITID INTEGER PRIMARY KEY AUTOINCREMENT, ITNAME TEXT, PRICE TEXT, INFO TEXT," +
-                " EID TEXT, PHNUM TEXT, FOTO TEXT)");
+                " EID TEXT, PHNUM TEXT, FOTO BLOB)");
         db.execSQL("CREATE TABLE " + POST_TABLE_NAME +"(PID INTEGER PRIMARY KEY AUTOINCREMENT, WNAME TEXT, SUB TEXT)");
     }
 
@@ -123,7 +123,7 @@ public class DBHelper extends SQLiteOpenHelper{
             return true;
     }
 
-    public boolean insertTradeData(String itname, String price, String info, String eid, String phnum, String foto) {
+    public boolean insertTradeData(String itname, String price, String info, String eid, String phnum, byte[] foto) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_ITNAME, itname);
@@ -210,7 +210,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return true;
     }
 
-    public boolean updateTradeData(String itid,String itname,String price,String info,String eid,String phnum,String foto) {
+    public boolean updateTradeData(String itid,String itname,String price,String info,String eid,String phnum,byte[] foto) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 

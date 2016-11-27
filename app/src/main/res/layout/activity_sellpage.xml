@@ -109,17 +109,6 @@
         android:id="@+id/editText2"
         android:hint="PHONE NUMBER" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Photo"
-        android:ems="10"
-        android:layout_below="@+id/editText2"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="45dp"
-        android:id="@+id/editText6" />
-
     <Button
         android:text="Delete"
         android:layout_width="wrap_content"
@@ -167,6 +156,15 @@
         android:layout_alignTop="@+id/button19"
         android:layout_toStartOf="@+id/button19"
         android:hint="ID" />
+
+    <Button
+        android:text="Upload photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="uploadPhoto"
+        android:id="@+id/upload"
+        android:layout_below="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
 
 
 </RelativeLayout>
