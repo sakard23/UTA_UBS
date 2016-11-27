@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:text="Post"
         android:layout_gravity="end"
-        android:id="@+id/post"/>
+        android:id="@+id/post01"/>
 
     <Button
         android:layout_width="365dp"

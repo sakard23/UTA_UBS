@@ -47,8 +47,8 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public static final String POST_TABLE_NAME="post_table";
     public static final String COL_PID="PID";
-    public static final String COL_FNAME="FNAME";
-    public static final String COL_LNAME="LNAME";
+    public static final String COL_WNAME="WNAME";
+   // public static final String COL_LNAME="LNAME";
     public static final String COL_SUB="SUB";
     //public static final String COL_ABOUT="ABOUT";
 
@@ -75,10 +75,10 @@ public class DBHelper extends SQLiteOpenHelper{
 
         db.execSQL("CREATE TABLE " + MEMBER_TABLE_NAME +"(RID INTEGER PRIMARY KEY AUTOINCREMENT, FNAME TEXT, LNAME TEXT, EMAILID TEXT," +
                 " PHNUM TEXT, NETID TEXT, UNAME TEXT, PW TEXT, SQ TEXT)");
-//        db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +"(CID INTEGER PRIMARY KEY AUTOINCREMENT, CLUB_NAME TEXT, ADMIN TEXT, FUNCTION TEXT)");
+        db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +"(CID INTEGER PRIMARY KEY AUTOINCREMENT, CLUB_NAME TEXT, ADMIN TEXT, FUNCTION TEXT)");
         db.execSQL("CREATE TABLE " + TRADE_TABLE_NAME +"(ITID INTEGER PRIMARY KEY AUTOINCREMENT, ITNAME TEXT, PRICE TEXT, INFO TEXT," +
-                " EID TEXT, PHNUM TEXT, FOTO BLOB)");
-        db.execSQL("CREATE TABLE " + POST_TABLE_NAME +"(PID INTEGER PRIMARY KEY AUTOINCREMENT, FNAME TEXT, LNAME TEXT, SUB TEXT)");
+                " EID TEXT, PHNUM TEXT, FOTO TEXT)");
+        db.execSQL("CREATE TABLE " + POST_TABLE_NAME +"(PID INTEGER PRIMARY KEY AUTOINCREMENT, WNAME TEXT, SUB TEXT)");
     }
 
     @Override
@@ -123,7 +123,7 @@ public class DBHelper extends SQLiteOpenHelper{
             return true;
     }
 
-    public boolean insertTradeData(String itname, String price, String info, String eid, String phnum, byte[] foto) {
+    public boolean insertTradeData(String itname, String price, String info, String eid, String phnum, String foto) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_ITNAME, itname);
@@ -141,11 +141,11 @@ public class DBHelper extends SQLiteOpenHelper{
         }
     }
 
-    public boolean insertPostData(String fname,String lname,String sub) {
+    public boolean insertPostData(String wname,String sub) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_FNAME,fname);
-        contentValues.put(COL_LNAME,lname);
+        contentValues.put(COL_WNAME,wname);
+        //contentValues.put(COL_LNAME,lname);
         contentValues.put(COL_SUB,sub);
         //contentValues.put(COL_13,info);
         long result = db.insert(POST_TABLE_NAME, null ,contentValues);
@@ -218,15 +218,15 @@ public class DBHelper extends SQLiteOpenHelper{
         contentValues.put(COL_EID,eid);
         contentValues.put(COL_PHNUM,phnum);
         contentValues.put(COL_FOTO,foto);
-        db.update(CLUB_TABLE_NAME, contentValues, "ITID = ?",new String[] { itid });
+        db.update(TRADE_TABLE_NAME, contentValues, "ITID = ?",new String[] { itid });
         return true;
     }
 
-    public boolean updatePostData(String pid,String sub) {
+    public boolean updatePostData(String pid,String wname,String sub) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_PID,pid);
-        //contentValues.put(COL_11,wname);
+        contentValues.put(COL_11,wname);
         contentValues.put(COL_12,sub);
         //contentValues.put(COL_13,about);
         db.update(POST_TABLE_NAME, contentValues, "PID = ?",new String[] { pid });
@@ -244,6 +244,6 @@ public class DBHelper extends SQLiteOpenHelper{
     }
     public Integer deletePostData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TRADE_TABLE_NAME, "PID = ?",new String[] {id});
+        return db.delete(POST_TABLE_NAME, "PID = ?",new String[] {id});
     }
 }
