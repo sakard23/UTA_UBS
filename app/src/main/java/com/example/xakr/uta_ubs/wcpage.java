@@ -63,6 +63,16 @@ public class wcpage extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main,menu);
+//        Button logout = (Button) findViewById(R.id.logout);
+//        logout.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                 TODO Auto-generated method stub
+//                Intent i = new Intent(getApplicationContext(), loginpage.class);
+//                startActivity(i);
+//            }
+//        });
         return true;
     }
 
