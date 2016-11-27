@@ -26,7 +26,7 @@ public class sellpage extends AppCompatActivity {
 
         //myDb=new DBHelper(this); //xakr added
         myDb = DBHelper.getInstance(this.getApplicationContext());
-
+        editItid = (EditText)findViewById(R.id.id8);
         editItname=(EditText)findViewById(R.id.editText);//xakr added
         editPrice=(EditText)findViewById(R.id.editText3);//xakr added
         editInfo=(EditText)findViewById(R.id.editText4);//xakr added
@@ -83,14 +83,14 @@ public class sellpage extends AppCompatActivity {
                             buffer.append("Item Id :"+ res.getString(0)+"\n");
                             buffer.append("Item Name :"+ res.getString(1)+"\n");
                             buffer.append("Price :"+ res.getString(2)+"\n");
-                            buffer.append("Details :"+ res.getString(2)+"\n");
-                            buffer.append("Email ID :"+ res.getString(2)+"\n");
-                            buffer.append("Phone Number) :"+ res.getString(3)+"\n");
-                            buffer.append("Photo :"+ res.getString(2)+"\n");
+                            buffer.append("Details :"+ res.getString(3)+"\n");
+                            buffer.append("Email ID :"+ res.getString(4)+"\n");
+                            buffer.append("Phone Number :"+ res.getString(5)+"\n");
+                            buffer.append("Photo :"+ res.getString(6)+"\n\n");
                         }
 
                         // Show all data
-                        showMessage("Data",buffer.toString());
+                        showMessage("Item Details",buffer.toString());
                     }
                 }
         );

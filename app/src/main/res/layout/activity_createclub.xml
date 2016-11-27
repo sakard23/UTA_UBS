@@ -38,12 +38,7 @@
         android:text="Create a New Club"
         android:layout_gravity="end"
         android:id="@+id/send10"/>
-    <Button
-        android:layout_width="345dp"
-        android:layout_height="wrap_content"
-        android:text="Update Information"
-        android:layout_gravity="end"
-        android:id="@+id/send001"/>
+
     <Button
         android:layout_width="345dp"
         android:layout_height="wrap_content"
@@ -51,17 +46,25 @@
         android:layout_gravity="end"
         android:id="@+id/send111"/>
 
-    <Button
-        android:layout_width="345dp"
-        android:layout_height="wrap_content"
-        android:text="Delete Club(s)"
-        android:layout_gravity="end"
-        android:id="@+id/send002"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="ID of Club you want to Delete"
+        android:hint="ID of Club you want to Update or Delete"
         android:id="@+id/id"/>
+
+    <Button
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:text="Update Information"
+        android:layout_gravity="end"
+        android:id="@+id/send001"/>
+
+    <Button
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:text="Delete Club"
+        android:layout_gravity="end"
+        android:id="@+id/send002"/>
 
 
 </LinearLayout>

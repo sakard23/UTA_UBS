@@ -26,6 +26,7 @@ public class tradepage extends AppCompatActivity {
             }
 
         });
+
         Button buy = (Button) findViewById(R.id.button6);
         buy.setOnClickListener(new View.OnClickListener() {
 
@@ -38,6 +39,7 @@ public class tradepage extends AppCompatActivity {
 
 
         });
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

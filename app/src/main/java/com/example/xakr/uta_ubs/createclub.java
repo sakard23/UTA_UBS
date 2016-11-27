@@ -80,7 +80,7 @@ public class createclub extends AppCompatActivity {
                         }
 
                         // Show all data
-                        showMessage("Data",buffer.toString());
+                        showMessage("Club List",buffer.toString());
                     }
                 }
         );

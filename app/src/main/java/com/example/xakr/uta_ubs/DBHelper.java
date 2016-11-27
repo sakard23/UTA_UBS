@@ -153,32 +153,32 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public Cursor validateUser(String userName){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+MEMBER_TABLE_NAME+" where UNAME = '" + userName+"' ",null);
+        Cursor res = db.rawQuery("select * from "+ MEMBER_TABLE_NAME +" where UNAME = '" + userName+"' ",null);
         return res;
     }
 
     public Cursor getEmail(String netId){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+MEMBER_TABLE_NAME+" where NETID = '" + netId+"' ",null);
+        Cursor res = db.rawQuery("select * from "+ MEMBER_TABLE_NAME +" where NETID = '" + netId+"' ",null);
         return res;
     }
 
 
     public Cursor getClubAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+CLUB_TABLE_NAME,null);
+        Cursor res = db.rawQuery("select * from "+ CLUB_TABLE_NAME,null);
         return res;
     }
 
     public Cursor getTradeAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+TRADE_TABLE_NAME,null);
+        Cursor res = db.rawQuery("select * from "+ TRADE_TABLE_NAME,null);
         return res;
     }
 
     public Cursor getPostAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+POST_TABLE_NAME,null);
+        Cursor res = db.rawQuery("select * from "+ POST_TABLE_NAME,null);
         return res;
     }
 
