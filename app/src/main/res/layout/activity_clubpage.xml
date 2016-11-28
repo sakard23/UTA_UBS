@@ -9,56 +9,45 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#E0F2F1"
     tools:context="com.example.xakr.uta_ubs.clubpage">
-
-    <TextView
-        android:layout_width="1250sp"
-        android:layout_height="35sp"
-        android:text="@string/club"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        android:id="@+id/textView"
-        android:layout_marginTop="62dp"
-        android:layout_marginStart="97dp"
-        android:layout_below="@+id/textView6"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="@string/create"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="createclub"
-        android:id="@+id/create1"
-        android:layout_below="@+id/join1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp" />
 
     <Button
         android:text="@string/join"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#009688"
+        android:textColor="#FFFFFF"
+        android:ems="10"
         android:onClick="joinclub"
         android:id="@+id/join1"
         tools:ignore="UnknownId"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp" />
 
     <Button
-        android:text="@string/manage"
+        android:text="Create/Manage a Club"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/manageMemberButton"
-        android:layout_alignTop="@+id/create1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp" />
+        android:background="#009688"
+        android:textColor="#FFFFFF"
+        android:ems="10"
+        android:onClick="createclub"
+        android:id="@+id/create1"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/join1"
+        android:layout_alignStart="@+id/join1" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/university_bazaar_system"
+        android:textStyle="bold"
         android:textSize="18sp"
+        android:textColor="#000000"
         android:id="@+id/textView6"
         android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/manageMemberButton" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

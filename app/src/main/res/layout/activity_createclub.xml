@@ -9,6 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#E0F2F1"
     android:orientation="vertical"
     tools:context="com.example.xakr.uta_ubs.sendmsg">
 
@@ -32,10 +33,13 @@
         android:layout_weight="1"
         android:gravity="top"
         android:id="@+id/func" />
+
     <Button
-        android:layout_width="345dp"
         android:layout_height="wrap_content"
+        android:layout_width="345dp"
         android:text="Create a New Club"
+        android:background="#009688"
+        android:textColor="#FFFFFF"
         android:layout_gravity="end"
         android:id="@+id/send10"/>
 
@@ -43,6 +47,8 @@
         android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:text="View All Club(s)"
+        android:background="#009688"
+        android:textColor="#FFFFFF"
         android:layout_gravity="end"
         android:id="@+id/send111"/>
 
@@ -53,9 +59,11 @@
         android:id="@+id/id"/>
 
     <Button
-        android:layout_width="345dp"
+        android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:text="Update Information"
+        android:background="#009688"
+        android:textColor="#FFFFFF"
         android:layout_gravity="end"
         android:id="@+id/send001"/>
 
@@ -63,6 +71,8 @@
         android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:text="Delete Club"
+        android:background="#009688"
+        android:textColor="#FFFFFF"
         android:layout_gravity="end"
         android:id="@+id/send002"/>
 

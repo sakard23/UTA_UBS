@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#E0F2F1"
     tools:context="com.example.xakr.uta_ubs.joinclub">
 
     <Button
@@ -24,7 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/university_bazaar_system"
+        android:textStyle="bold"
         android:textSize="18sp"
+        android:textColor="#000000"
         android:id="@+id/textView6"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

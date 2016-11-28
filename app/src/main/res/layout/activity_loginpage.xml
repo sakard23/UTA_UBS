@@ -8,17 +8,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#E0F2F1"
     tools:context="com.example.xakr.uta_ubs.loginpage">
 
-
-    <TextView
-        android:text="UNIVERSITY BAZAAR SYSTEM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:layout_marginTop="16dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/log_in" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -27,7 +19,6 @@
         android:ems="8"
         android:id="@+id/Password"
         android:hint="Password"
-
         android:layout_marginTop="13dp"
         android:layout_below="@+id/log_in"
         android:layout_alignStart="@+id/log_in" />
@@ -35,6 +26,8 @@
     <Button
         android:id="@+id/login_button"
         android:text="LOG IN"
+        android:background="#009688"
+        android:textColor="#FFFFFF"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:onClick="logIn"
@@ -88,6 +81,17 @@
         style="?android:attr/borderlessButtonStyle"
         android:id="@+id/button17"
         android:layout_below="@+id/login_button"
+        android:layout_centerHorizontal="true" />
+
+     <TextView
+        android:text="UNIVERSITY BAZAAR SYSTEM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:id="@+id/textView8"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
