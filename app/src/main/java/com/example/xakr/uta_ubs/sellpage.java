@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.sql.Blob;
 
 import static android.R.attr.bitmap;
 import static android.R.attr.width;
@@ -36,6 +37,7 @@ public class sellpage extends AppCompatActivity {
     private static int RESULT_LOAD_IMG=1;
     String imgDecodableString;
     byte[] byteArray;
+    Cursor c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +55,12 @@ public class sellpage extends AppCompatActivity {
         //editPhoto=(EditText)findViewById(R.id.editText6);//xakr added
 
         //editDetails=(EditText)findViewById(R.id.editText4);
-
+        c=myDb.getUser();
         btnAddData = (Button)findViewById(R.id.button2);
         btnviewAll = (Button)findViewById(R.id.button18);
         btnviewUpdate= (Button)findViewById(R.id.button20);
         btnDelete= (Button)findViewById(R.id.button19);
+
         AddData();
         viewAll();
         UpdateData();
@@ -97,15 +100,15 @@ public class sellpage extends AppCompatActivity {
                         }
 
                         StringBuffer buffer = new StringBuffer();
-                        byte[] image;
                         while (res.moveToNext()) {
-                            buffer.append("Item Id :"+ res.getString(0)+"\n");
-                            buffer.append("Item Name :"+ res.getString(1)+"\n");
-                            buffer.append("Price :"+ res.getString(2)+"\n");
-                            buffer.append("Details :"+ res.getString(3)+"\n");
-                            buffer.append("Email ID :"+ res.getString(4)+"\n");
-                            buffer.append("Phone Number :"+ res.getString(5)+"\n");
-                            buffer.append("Photo :"+ res.getBlob(6)+"\n\n");
+                            if((c.getString(3)).equals(res.getString(4))) {
+                                buffer.append("Item Id :" + res.getString(0) + "\n");
+                                buffer.append("Item Name :" + res.getString(1) + "\n");
+                                buffer.append("Price :" + res.getString(2) + "\n");
+                                buffer.append("Details :" + res.getString(3) + "\n");
+                                buffer.append("Email ID :" + res.getString(4) + "\n");
+                                buffer.append("Phone Number :" + res.getString(5) + "\n");
+                            }
                         }
 
                         // Show all data

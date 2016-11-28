@@ -15,7 +15,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper{
 
     public static Cursor userCursor;
+
     public static final String DATABASE_NAME= "ubsdb.db";
+
     public static final String MEMBER_TABLE_NAME="users_table";
     public static final String COL_0="RID";
     public static final String COL_1="FNAME";
@@ -32,7 +34,13 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String COL_10="CID";
     public static final String COL_11="CLUB_NAME";
     public static final String COL_12="ADMIN";
+    public static final String COL_14="NETID";
     public static final String COL_13="FUNCTION";
+
+    public static final String MS_TABLE_NAME="membership_table";
+    public static final String COL_MSID="MSID";
+    public static final String COL_MSCID="MSCID";
+    public static final String COL_MSNETID="MSNETID";
 
 
     public static final String TRADE_TABLE_NAME="trade_table";
@@ -52,6 +60,14 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String COL_SUB="SUB";
     //public static final String COL_ABOUT="ABOUT";
 
+/*
+    public static final String EMAIL_TABLE_NAME="email_table";
+    public static final String COL_EMID="EMID";
+    public static final String COL_FROM="FROM";
+    public static final String COL_TO="TO";
+    public static final String COL_TOP="TOP";
+    public static final String COL_MSG="MSG";
+*/
     private static DBHelper INSTANCE= null;
     private Context context;
 
@@ -75,11 +91,16 @@ public class DBHelper extends SQLiteOpenHelper{
 
         db.execSQL("CREATE TABLE " + MEMBER_TABLE_NAME +"(RID INTEGER PRIMARY KEY AUTOINCREMENT, FNAME TEXT, LNAME TEXT, EMAILID TEXT," +
                 " PHNUM TEXT, NETID TEXT, UNAME TEXT, PW TEXT, SQ TEXT)");
-        db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +"(CID INTEGER PRIMARY KEY AUTOINCREMENT, CLUB_NAME TEXT, ADMIN TEXT, FUNCTION TEXT)");
+        db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +"(CID INTEGER PRIMARY KEY AUTOINCREMENT, CLUB_NAME TEXT, ADMIN TEXT, NETID TEXT, FUNCTION TEXT)");
         db.execSQL("CREATE TABLE " + TRADE_TABLE_NAME +"(ITID INTEGER PRIMARY KEY AUTOINCREMENT, ITNAME TEXT, PRICE TEXT, INFO TEXT," +
                 " EID TEXT, PHNUM TEXT, FOTO BLOB)");
         db.execSQL("CREATE TABLE " + POST_TABLE_NAME +"(PID INTEGER PRIMARY KEY AUTOINCREMENT, WNAME TEXT, SUB TEXT)");
+        //db.execSQL("CREATE TABLE " + EMAIL_TABLE_NAME +"(EMID INTEGER PRIMARY KEY AUTOINCREMENT, FROM TEXT, TO TEXT, TOP TEXT,MSG TEXT)");
+        db.execSQL("CREATE TABLE " + MS_TABLE_NAME +"(MSID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "FOREIGN TABLE (MSCID) REFERENCES CLUB_TABLE_NAME (CID)," +
+                "FOREIGN TABLE (MSNETID) REFERENCES CLUB_TABLE_NAME (NETID))");
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
@@ -87,6 +108,7 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS " + CLUB_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TRADE_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + POST_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + MS_TABLE_NAME);
         onCreate(db);
     }
 
@@ -110,13 +132,28 @@ public class DBHelper extends SQLiteOpenHelper{
         }
     }
 
-    public boolean insertClubData(String cname,String admin,String func) {
+    public boolean insertClubData(String cname,String admin,String netid,String func) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_11,cname);
         contentValues.put(COL_12,admin);
         contentValues.put(COL_13,func);
+        contentValues.put(COL_14,netid);
         long result = db.insert(CLUB_TABLE_NAME, null ,contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertMsData(String msid,String mscid,String msnetid) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_MSID,msid);
+        contentValues.put(COL_MSCID,mscid);
+        contentValues.put(COL_MSNETID,msnetid);
+
+        long result = db.insert(MS_TABLE_NAME, null ,contentValues);
         if(result == -1)
             return false;
         else
@@ -157,10 +194,29 @@ public class DBHelper extends SQLiteOpenHelper{
             return true;
         }
     }
+/*
+    public boolean insertEmailData(String from,String to, String top, String msg ) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
 
+        contentValues.put(COL_FROM,from);
+        contentValues.put(COL_TO,to);
+        contentValues.put(COL_TOP,top);
+        contentValues.put(COL_MSG,msg);
+
+
+        long result = db.insert(EMAIL_TABLE_NAME, null ,contentValues);
+        if(result == -1){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+*/
     public void setUser(String userName){
         SQLiteDatabase db = this.getWritableDatabase();
-        this.userCursor = db.rawQuery("select * from "+MEMBER_TABLE_NAME+" where UNAME = '" + userName+"' ",null);
+        this.userCursor = db.rawQuery("select * from "+ MEMBER_TABLE_NAME +" where UNAME = '" + userName+"' ",null);
     }
 
     public Cursor getUser(){
@@ -173,6 +229,12 @@ public class DBHelper extends SQLiteOpenHelper{
         Cursor res = db.rawQuery("select * from "+ MEMBER_TABLE_NAME +" where UNAME = '" + userName+"' ",null);
         return res;
     }
+
+    /*public Cursor readPost(String readAll){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+ POST_TABLE_NAME,null);
+        return res;
+    }*/
 
     public Cursor getEmail(String netId){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -189,7 +251,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public Cursor getTradeAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+ TRADE_TABLE_NAME,null);
+        Cursor res = db.rawQuery("select * from "+ TRADE_TABLE_NAME,null,null);
         return res;
     }
 
@@ -198,7 +260,13 @@ public class DBHelper extends SQLiteOpenHelper{
         Cursor res = db.rawQuery("select * from "+ POST_TABLE_NAME,null);
         return res;
     }
-
+/*
+    public Cursor getEmailAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+ EMAIL_TABLE_NAME,null);
+        return res;
+    }
+*/
     public boolean updateClubData(String cid,String cname,String admin,String func) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -206,6 +274,7 @@ public class DBHelper extends SQLiteOpenHelper{
         contentValues.put(COL_11,cname);
         contentValues.put(COL_12,admin);
         contentValues.put(COL_13,func);
+        //contentValues.put(COL_14,netid);
         db.update(CLUB_TABLE_NAME, contentValues, "CID = ?",new String[] { cid });
         return true;
     }
@@ -249,4 +318,10 @@ public class DBHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(POST_TABLE_NAME, "PID = ?",new String[] {id});
     }
+    /*
+    public Integer deleteEmailData (String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(EMAIL_TABLE_NAME, "EMID = ?",new String[] {id});
+    }
+    */
 }

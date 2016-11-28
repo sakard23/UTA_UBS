@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class createclub extends AppCompatActivity {
 
     DBHelper myDb;
-    EditText editCname,editAdmin,editFunc,editTextId;
+    EditText editCname,editAdmin,editNetid,editFunc,editTextId;
     Button btnAddData;
     Button btnviewAll;
     Button btnDelete;
@@ -30,6 +30,7 @@ public class createclub extends AppCompatActivity {
 
         editCname = (EditText)findViewById(R.id.select);
         editAdmin = (EditText)findViewById(R.id.admin);
+        editNetid = (EditText)findViewById(R.id.net_id);
         editFunc = (EditText)findViewById(R.id.func);
         editTextId = (EditText)findViewById(R.id.id);
         btnAddData = (Button)findViewById(R.id.send10);
@@ -48,7 +49,7 @@ public class createclub extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         boolean isInserted = myDb.insertClubData(editCname.getText().toString(),
-                                editAdmin.getText().toString(),
+                                editAdmin.getText().toString(),editNetid.getText().toString(),
                                 editFunc.getText().toString() );
                         if(isInserted == true)
                             Toast.makeText(createclub.this,"Club Formed",Toast.LENGTH_LONG).show();
@@ -75,7 +76,7 @@ public class createclub extends AppCompatActivity {
                         while (res.moveToNext()) {
                             buffer.append("Id :"+ res.getString(0)+"\n");
                             buffer.append("CLUB Name :"+ res.getString(1)+"\n");
-                            buffer.append("ADMIN :"+ res.getString(2)+"\n");
+                            //buffer.append("ADMIN :"+ res.getString(2)+"\n");
                             buffer.append("CLUB FUNCTION(S) :"+ res.getString(3)+"\n\n");
                         }
 
@@ -112,7 +113,7 @@ public class createclub extends AppCompatActivity {
                         if(deletedRows > 0)
                             Toast.makeText(createclub.this,"Club Deleted",Toast.LENGTH_LONG).show();
                         else
-                            Toast.makeText(createclub.this,"Please Enter Valaid Club ID",Toast.LENGTH_LONG).show();
+                            Toast.makeText(createclub.this,"Please Enter Valid Club ID",Toast.LENGTH_LONG).show();
                     }
                 }
         );
