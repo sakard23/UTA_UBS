@@ -186,7 +186,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public Cursor getTradeAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+ TRADE_TABLE_NAME,null);
+        Cursor res = db.rawQuery("select * from "+ TRADE_TABLE_NAME,null,null);
         return res;
     }
 

@@ -10,22 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.xakr.uta_ubs.buypage">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/university_bazaar_system"
-        android:textSize="18sp"
-        android:id="@+id/textView6"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="buy page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="49dp"
-        android:id="@+id/button13"
-        android:layout_below="@+id/textView6"
-        android:layout_alignParentStart="true" />
+        android:layout_margin="5dp"
+        android:columnWidth="100dp"
+        android:drawSelectorOnTop="true"
+        android:gravity="center"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dp"
+        android:focusable="true"
+        android:clickable="true"/>
 </RelativeLayout>
