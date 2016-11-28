@@ -66,26 +66,7 @@
         android:layout_alignParentStart="true"
         android:background="#E0F2F1"
         >
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Create your post"
-            android:id="@+id/create"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/create"
-            android:id="@+id/createbutton"
-            android:onClick="createPost"
-            android:text="Create"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/create"
-            android:onClick="cancelPost"
-            android:text="Cancel"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
