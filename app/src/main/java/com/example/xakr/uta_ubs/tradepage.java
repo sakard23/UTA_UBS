@@ -51,6 +51,7 @@ public class tradepage extends AppCompatActivity {
                 EditText search=(EditText) findViewById(R.id.searchItem);
                 String keyword=search.getText().toString();
                 Intent i = new Intent(getApplicationContext(), buypage.class);
+                i.putExtra("EXTRA",keyword);
                 startActivity(i);
             }
 
