@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
 
 
 public class DBHelper extends SQLiteOpenHelper{
@@ -54,6 +55,8 @@ public class DBHelper extends SQLiteOpenHelper{
 
     private static DBHelper INSTANCE= null;
     private Context context;
+
+    private ArrayList<Item> items=new ArrayList<Item>();
 
 
     public DBHelper(Context context) {
@@ -133,6 +136,15 @@ public class DBHelper extends SQLiteOpenHelper{
         contentValues.put(COL_PHNUM, phnum);
         contentValues.put(COL_FOTO, foto);
 
+        Item item=new Item();
+        item.setItname(itname);
+        item.setPrice(price);
+        item.setDetails(info);
+        item.setEid(eid);
+        item.setPhnum(phnum);
+        item.setPhoto(foto);
+        //item.setItid();
+        items.add(item);
         long result = db.insert(TRADE_TABLE_NAME, null, contentValues);
         if (result == -1) {
             return false;
@@ -243,10 +255,19 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public Integer deleteTradeData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
+        /*for(int i=0;i<items.size();i++){
+            if((items.get(i).getItid()).equals(id)){
+
+            }
+        }*/
         return db.delete(TRADE_TABLE_NAME, "ITID = ?",new String[] {id});
     }
     public Integer deletePostData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(POST_TABLE_NAME, "PID = ?",new String[] {id});
+    }
+
+    public ArrayList<Item> returnItem(){
+        return items;
     }
 }
