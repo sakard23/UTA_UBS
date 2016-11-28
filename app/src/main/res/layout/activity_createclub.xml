@@ -53,6 +53,7 @@
         android:text="View All Club(s)"
         android:background="#009688"
         android:textColor="#FFFFFF"
+        android:layout_marginTop="5dp"
         android:layout_gravity="end"
         android:id="@+id/send111"/>
 
@@ -77,6 +78,7 @@
         android:text="Delete Club"
         android:background="#009688"
         android:textColor="#FFFFFF"
+        android:layout_marginTop="5dp"
         android:layout_gravity="end"
         android:id="@+id/send002"/>
 
