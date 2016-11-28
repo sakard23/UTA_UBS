@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 
 public class DBHelper extends SQLiteOpenHelper{
-
+    //jhghj
     public static Cursor userCursor;
     public static final String DATABASE_NAME= "ubsdb.db";
     public static final String MEMBER_TABLE_NAME="users_table";
