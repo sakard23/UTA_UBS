@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class readpost extends AppCompatActivity {
-     DBHelper myDb;
+    DBHelper myDb;
     TextView txtview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,8 @@ public class readpost extends AppCompatActivity {
         StringBuffer buffer=new StringBuffer();
         Cursor res=myDb.getPostAllData();
         while(res.moveToNext()){
-            buffer.append(res.getString(2)+"\n\n");
+            buffer.append("Writer Name :"+ res.getString(1)+"\n");
+            buffer.append("Status :"+ res.getString(2)+"\n\n\n");
         }
         txtview=(TextView)findViewById(R.id.viewPost);
         txtview.setText(buffer);
