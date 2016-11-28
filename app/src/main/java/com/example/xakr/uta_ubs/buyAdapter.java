@@ -2,6 +2,7 @@ package com.example.xakr.uta_ubs;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,6 +62,7 @@ public class buyAdapter extends BaseAdapter {
         TextView name = (TextView) convertView.findViewById(R.id.name);
         TextView price = (TextView) convertView.findViewById(R.id.price);
         TextView description = (TextView) convertView.findViewById(R.id.description);
+        Button email=(Button) convertView.findViewById(R.id.email);
 
         Item e = new Item();
         e = items.get(position);
@@ -73,5 +76,4 @@ public class buyAdapter extends BaseAdapter {
     public static Bitmap getImage(byte[] image){
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
-
 }
