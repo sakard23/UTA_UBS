@@ -49,8 +49,7 @@ public class createclub extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         boolean isInserted = myDb.insertClubData(editCname.getText().toString(),
-                                editAdmin.getText().toString(),editNetid.getText().toString(),
-                                editFunc.getText().toString() );
+                                editAdmin.getText().toString(), editFunc.getText().toString() );
                         if(isInserted == true)
                             Toast.makeText(createclub.this,"Club Formed",Toast.LENGTH_LONG).show();
                         else

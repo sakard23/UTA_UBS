@@ -57,7 +57,7 @@ public class DBHelper extends SQLiteOpenHelper{
     private Context context;
 
     private ArrayList<Item> items=new ArrayList<Item>();
-
+    private ArrayList<Club> clubs=new ArrayList<Club>();
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -119,6 +119,12 @@ public class DBHelper extends SQLiteOpenHelper{
         contentValues.put(COL_11,cname);
         contentValues.put(COL_12,admin);
         contentValues.put(COL_13,func);
+
+        Club club=new Club();
+        club.setCname(cname);
+        club.setAdmin(admin);
+        club.setFunction(func);
+        clubs.add(club);
         long result = db.insert(CLUB_TABLE_NAME, null ,contentValues);
         if(result == -1)
             return false;
@@ -143,7 +149,6 @@ public class DBHelper extends SQLiteOpenHelper{
         item.setEid(eid);
         item.setPhnum(phnum);
         item.setPhoto(foto);
-        //item.setItid();
         items.add(item);
         long result = db.insert(TRADE_TABLE_NAME, null, contentValues);
         if (result == -1) {
@@ -222,18 +227,17 @@ public class DBHelper extends SQLiteOpenHelper{
         return true;
     }
 
-    public boolean updateTradeData(String itid,String itname,String price,String info,String eid,String phnum,byte[] foto) {
+    public boolean updateTradeData(String itname,String price,String info,String eid,String phnum,byte[] foto) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(COL_ITID,itid);
         contentValues.put(COL_ITNAME,itname);
         contentValues.put(COL_PRICE,price);
         contentValues.put(COL_INFO,info);
         contentValues.put(COL_EID,eid);
         contentValues.put(COL_PHNUM,phnum);
         contentValues.put(COL_FOTO,foto);
-        db.update(TRADE_TABLE_NAME, contentValues, "ITID = ?",new String[] { itid });
+        //db.update(TRADE_TABLE_NAME, contentValues, "ITID = ?",new String[] { itid });
         return true;
     }
 
@@ -250,16 +254,24 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public Integer deleteClubData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("select * from CLUB_TABLE_NAME WHERE CID="+id+"",null);
+        for(int i=0;i<clubs.size();i++){
+            if(clubs.get(i).getCid()==res.getInt(res.getColumnIndex("CID"))){
+                clubs.remove(clubs.get(i));
+            }
+        }
         return db.delete(CLUB_TABLE_NAME, "CID = ?",new String[] {id});
     }
 
     public Integer deleteTradeData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        /*for(int i=0;i<items.size();i++){
-            if((items.get(i).getItid()).equals(id)){
-
+        int itemid=Integer.parseInt(id);
+        Cursor res=db.rawQuery("select * from TRADE_TABLE_NAME WHERE ITID="+itemid+"",null);
+        for(int i=0;i<items.size();i++){
+            if(items.get(i).getItid()==res.getInt(res.getColumnIndex("ITID"))){
+                items.remove(items.get(i));
             }
-        }*/
+        }
         return db.delete(TRADE_TABLE_NAME, "ITID = ?",new String[] {id});
     }
     public Integer deletePostData (String id) {
@@ -269,5 +281,9 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public ArrayList<Item> returnItem(){
         return items;
+    }
+
+    public ArrayList<Club> returnClub(){
+        return clubs;
     }
 }

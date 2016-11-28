@@ -46,7 +46,7 @@ public class sellpage extends AppCompatActivity {
 
         //myDb=new DBHelper(this); //xakr added
         myDb = DBHelper.getInstance(this.getApplicationContext());
-        editItid = (EditText)findViewById(R.id.id8);
+        //editItid = (EditText)findViewById(R.id.id8);
         editItname=(EditText)findViewById(R.id.editText);//xakr added
         editPrice=(EditText)findViewById(R.id.editText3);//xakr added
         editInfo=(EditText)findViewById(R.id.editText4);//xakr added
@@ -102,7 +102,7 @@ public class sellpage extends AppCompatActivity {
                         StringBuffer buffer = new StringBuffer();
                         while (res.moveToNext()) {
                             if((c.getString(3)).equals(res.getString(4))) {
-                                buffer.append("Item Id :" + res.getString(0) + "\n");
+                                buffer.append("Item Id :" + res.getInt(0) + "\n");
                                 buffer.append("Item Name :" + res.getString(1) + "\n");
                                 buffer.append("Price :" + res.getString(2) + "\n");
                                 buffer.append("Details :" + res.getString(3) + "\n");
@@ -123,7 +123,7 @@ public class sellpage extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean isUpdate = myDb.updateTradeData(editItid.getText().toString(),editItname.getText().toString(),
+                        boolean isUpdate = myDb.updateTradeData(editItname.getText().toString(),
                                 editPrice.getText().toString(), editInfo.getText().toString(),
                                 editEid.getText().toString(),
                                 editPhnum.getText().toString(), byteArray);
