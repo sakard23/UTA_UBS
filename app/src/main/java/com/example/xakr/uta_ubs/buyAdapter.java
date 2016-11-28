@@ -16,7 +16,7 @@ import java.util.ArrayList;*/
 /**
  * Created by Sushil on 11/27/2016.
  */
-/*
+/*google
 public class buyAdapter extends ArrayAdapter {
     private Context context;
     private int layoutResourceId;
