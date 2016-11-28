@@ -7,12 +7,21 @@
         app:showAsAction="never" >
 
             <item
-                android:id="@+id/menu_settings"
+
+
+        android:id="@+id/settings"
                 android:title="Settings"/>
             <item
-
-                android:id="@+id/menu_logout"
+                android:id="@+id/logout"
                 android:title="Logout"/>
+            <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post"
+            android:layout_gravity="end"
+            android:id="@+id/post01"/>
+
+
 
         </item>
 </menu>

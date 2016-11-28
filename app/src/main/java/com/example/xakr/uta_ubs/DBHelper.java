@@ -77,7 +77,7 @@ public class DBHelper extends SQLiteOpenHelper{
                 " PHNUM TEXT, NETID TEXT, UNAME TEXT, PW TEXT, SQ TEXT)");
         db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +"(CID INTEGER PRIMARY KEY AUTOINCREMENT, CLUB_NAME TEXT, ADMIN TEXT, FUNCTION TEXT)");
         db.execSQL("CREATE TABLE " + TRADE_TABLE_NAME +"(ITID INTEGER PRIMARY KEY AUTOINCREMENT, ITNAME TEXT, PRICE TEXT, INFO TEXT," +
-                " EID TEXT, PHNUM TEXT, FOTO TEXT)");
+                " EID TEXT, PHNUM TEXT, FOTO BLOB)");
         db.execSQL("CREATE TABLE " + POST_TABLE_NAME +"(PID INTEGER PRIMARY KEY AUTOINCREMENT, WNAME TEXT, SUB TEXT)");
     }
 
@@ -123,7 +123,7 @@ public class DBHelper extends SQLiteOpenHelper{
             return true;
     }
 
-    public boolean insertTradeData(String itname, String price, String info, String eid, String phnum, String foto) {
+    public boolean insertTradeData(String itname, String price, String info, String eid, String phnum, byte[] foto) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_ITNAME, itname);
@@ -144,15 +144,18 @@ public class DBHelper extends SQLiteOpenHelper{
     public boolean insertPostData(String wname,String sub) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(COL_WNAME,wname);
         //contentValues.put(COL_LNAME,lname);
         contentValues.put(COL_SUB,sub);
-        //contentValues.put(COL_13,info);
+
         long result = db.insert(POST_TABLE_NAME, null ,contentValues);
-        if(result == -1)
+        if(result == -1){
             return false;
-        else
+        }
+        else {
             return true;
+        }
     }
 
     public void setUser(String userName){
@@ -207,7 +210,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return true;
     }
 
-    public boolean updateTradeData(String itid,String itname,String price,String info,String eid,String phnum,String foto) {
+    public boolean updateTradeData(String itid,String itname,String price,String info,String eid,String phnum,byte[] foto) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -226,8 +229,8 @@ public class DBHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_PID,pid);
-        contentValues.put(COL_11,wname);
-        contentValues.put(COL_12,sub);
+        contentValues.put(COL_WNAME,wname);
+        contentValues.put(COL_SUB,sub);
         //contentValues.put(COL_13,about);
         db.update(POST_TABLE_NAME, contentValues, "PID = ?",new String[] { pid });
         return true;
