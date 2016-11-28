@@ -15,7 +15,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper{
 
     public static Cursor userCursor;
+
     public static final String DATABASE_NAME= "ubsdb.db";
+
     public static final String MEMBER_TABLE_NAME="users_table";
     public static final String COL_0="RID";
     public static final String COL_1="FNAME";
@@ -52,6 +54,14 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String COL_SUB="SUB";
     //public static final String COL_ABOUT="ABOUT";
 
+/*
+    public static final String EMAIL_TABLE_NAME="email_table";
+    public static final String COL_EMID="EMID";
+    public static final String COL_FROM="FROM";
+    public static final String COL_TO="TO";
+    public static final String COL_TOP="TOP";
+    public static final String COL_MSG="MSG";
+*/
     private static DBHelper INSTANCE= null;
     private Context context;
 
@@ -79,6 +89,7 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("CREATE TABLE " + TRADE_TABLE_NAME +"(ITID INTEGER PRIMARY KEY AUTOINCREMENT, ITNAME TEXT, PRICE TEXT, INFO TEXT," +
                 " EID TEXT, PHNUM TEXT, FOTO BLOB)");
         db.execSQL("CREATE TABLE " + POST_TABLE_NAME +"(PID INTEGER PRIMARY KEY AUTOINCREMENT, WNAME TEXT, SUB TEXT)");
+        //db.execSQL("CREATE TABLE " + EMAIL_TABLE_NAME +"(EMID INTEGER PRIMARY KEY AUTOINCREMENT, FROM TEXT, TO TEXT, TOP TEXT,MSG TEXT)");
     }
 
     @Override
@@ -87,6 +98,7 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS " + CLUB_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TRADE_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + POST_TABLE_NAME);
+        //db.execSQL("DROP TABLE IF EXISTS " + EMAIL_TABLE_NAME);
         onCreate(db);
     }
 
@@ -157,10 +169,29 @@ public class DBHelper extends SQLiteOpenHelper{
             return true;
         }
     }
+/*
+    public boolean insertEmailData(String from,String to, String top, String msg ) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
 
+        contentValues.put(COL_FROM,from);
+        contentValues.put(COL_TO,to);
+        contentValues.put(COL_TOP,top);
+        contentValues.put(COL_MSG,msg);
+
+
+        long result = db.insert(EMAIL_TABLE_NAME, null ,contentValues);
+        if(result == -1){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+*/
     public void setUser(String userName){
         SQLiteDatabase db = this.getWritableDatabase();
-        this.userCursor = db.rawQuery("select * from "+MEMBER_TABLE_NAME+" where UNAME = '" + userName+"' ",null);
+        this.userCursor = db.rawQuery("select * from "+ MEMBER_TABLE_NAME +" where UNAME = '" + userName+"' ",null);
     }
 
     public Cursor getUser(){
@@ -173,6 +204,12 @@ public class DBHelper extends SQLiteOpenHelper{
         Cursor res = db.rawQuery("select * from "+ MEMBER_TABLE_NAME +" where UNAME = '" + userName+"' ",null);
         return res;
     }
+
+    /*public Cursor readPost(String readAll){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+ POST_TABLE_NAME,null);
+        return res;
+    }*/
 
     public Cursor getEmail(String netId){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -198,7 +235,13 @@ public class DBHelper extends SQLiteOpenHelper{
         Cursor res = db.rawQuery("select * from "+ POST_TABLE_NAME,null);
         return res;
     }
-
+/*
+    public Cursor getEmailAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+ EMAIL_TABLE_NAME,null);
+        return res;
+    }
+*/
     public boolean updateClubData(String cid,String cname,String admin,String func) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -249,4 +292,10 @@ public class DBHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(POST_TABLE_NAME, "PID = ?",new String[] {id});
     }
+    /*
+    public Integer deleteEmailData (String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(EMAIL_TABLE_NAME, "EMID = ?",new String[] {id});
+    }
+    */
 }
