@@ -1,5 +1,6 @@
 package com.example.xakr.uta_ubs;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -35,6 +36,7 @@ public class registerpage extends AppCompatActivity {
         AddData(); //xakr added
     }
 
+
     //xakr added function adddata()
     public void AddData(){
         btnAddData.setOnClickListener(
@@ -50,7 +52,8 @@ public class registerpage extends AppCompatActivity {
                             Toast.makeText(registerpage.this,"Registration Successful", Toast.LENGTH_LONG).show();
                         else
                             Toast.makeText(registerpage.this,"Error occured while Registration. Please Try Again", Toast.LENGTH_LONG).show();
-
+                        Intent intent=new Intent(getApplicationContext(),loginpage.class);
+                        startActivity(intent);
                     }
                 }
         );
