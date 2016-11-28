@@ -12,6 +12,9 @@ public class User {
     private String _netId;
     private String sq;
 
+    public User(){};
+
+
     public String getSq() {
         return sq;
     }

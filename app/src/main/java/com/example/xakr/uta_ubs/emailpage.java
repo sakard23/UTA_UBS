@@ -14,18 +14,11 @@ public class emailpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emailpage);
-        Button indiv = (Button) findViewById(R.id.individual);
-        indiv.setOnClickListener(new View.OnClickListener() {
+    }
 
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Intent i = new Intent(getApplicationContext(), selectIndiv.class);
-                startActivity(i);
-            }
-
-        });
-
+    public void indivEmail(View view){
+        Intent intent=new Intent(this,selectIndiv.class);
+        startActivity(intent);
     }
 
 

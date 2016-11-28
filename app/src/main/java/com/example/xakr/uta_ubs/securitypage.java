@@ -47,10 +47,18 @@ public class securitypage extends AppCompatActivity {
              if((ans1.equals(netId)) && (ans2.equals(sqAns))) {
                  AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
                  AlertDialog dialog = alertDialogBuilder.create();
-                 dialog.setMessage("Your Username: "+c.getString(c.getColumnIndex("UNAME"))+"\nPassword: "+c.getString(c.getColumnIndex("PW")));
+                 dialog.setMessage("Your Username: " + c.getString(c.getColumnIndex("UNAME")) + "\nPassword: " + c.getString(c.getColumnIndex("PW")));
                  dialog.show();
              }
+             else{
+                 Toast.makeText(securitypage.this, "Invalid.", Toast.LENGTH_SHORT).show();
+             }
+
+        }
+        if(!(c.moveToFirst())){
+            Toast.makeText(securitypage.this, "Invalid.", Toast.LENGTH_SHORT).show();
         }
     }
-
 }
+
+
