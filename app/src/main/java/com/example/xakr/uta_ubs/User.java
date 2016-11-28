@@ -2,7 +2,6 @@ package com.example.xakr.uta_ubs;
 
 
 public class User {
-    private int _id;
     private String _fisrtName;
     private String _lastName;
     private String _dob;
@@ -11,13 +10,14 @@ public class User {
     private String _userName;
     private String _password;
     private String _netId;
+    private String sq;
 
-    public int get_id() {
-        return _id;
+    public String getSq() {
+        return sq;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setSq(String sq) {
+        this.sq = sq;
     }
 
     public String get_fisrtName() {

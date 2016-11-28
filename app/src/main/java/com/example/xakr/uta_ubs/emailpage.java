@@ -14,20 +14,20 @@ public class emailpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emailpage);
-
-        Button Send = (Button) findViewById(R.id.button14);
-        Send.setOnClickListener(new View.OnClickListener() {
+        Button indiv = (Button) findViewById(R.id.individual);
+        indiv.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Intent i = new Intent(getApplicationContext(), sendmsg.class);
+                Intent i = new Intent(getApplicationContext(), selectIndiv.class);
                 startActivity(i);
             }
 
-
         });
+
     }
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
