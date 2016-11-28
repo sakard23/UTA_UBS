@@ -15,7 +15,7 @@ import android.widget.Toast;
 import java.io.Serializable;
 
 import static android.R.attr.onClick;
-import static com.example.xakr.uta_ubs.R.id.textView;
+
 
 public class loginpage extends AppCompatActivity {
     DBHelper myDb;

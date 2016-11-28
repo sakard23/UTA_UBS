@@ -32,9 +32,10 @@ public class writepost extends AppCompatActivity {
         myDb = DBHelper.getInstance(this.getApplicationContext());
         //myDb.onCreate();
 
+        editPid = (EditText)findViewById(R.id.id);
         editWname = (EditText)findViewById(R.id.wname);
         editSub = (EditText)findViewById(R.id.sub);
-        editPid = (EditText)findViewById(R.id.id);
+
         btnAddData = (Button)findViewById(R.id.post01);
         btnviewAll = (Button)findViewById(R.id.show);
         btnviewUpdate= (Button)findViewById(R.id.update);

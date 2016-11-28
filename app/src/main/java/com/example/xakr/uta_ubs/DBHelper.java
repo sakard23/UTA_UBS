@@ -144,15 +144,18 @@ public class DBHelper extends SQLiteOpenHelper{
     public boolean insertPostData(String wname,String sub) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(COL_WNAME,wname);
         //contentValues.put(COL_LNAME,lname);
         contentValues.put(COL_SUB,sub);
-        //contentValues.put(COL_13,info);
+
         long result = db.insert(POST_TABLE_NAME, null ,contentValues);
-        if(result == -1)
+        if(result == -1){
             return false;
-        else
+        }
+        else {
             return true;
+        }
     }
 
     public void setUser(String userName){
@@ -226,8 +229,8 @@ public class DBHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_PID,pid);
-        contentValues.put(COL_11,wname);
-        contentValues.put(COL_12,sub);
+        contentValues.put(COL_WNAME,wname);
+        contentValues.put(COL_SUB,sub);
         //contentValues.put(COL_13,about);
         db.update(POST_TABLE_NAME, contentValues, "PID = ?",new String[] { pid });
         return true;
