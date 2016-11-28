@@ -39,6 +39,12 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String COL_14="FUNCTION";
 
 
+    public static final String MS_TABLE_NAME="membership_table";
+    public static final String COL_MSID="MSID";
+    public static final String COL_MSCNAME="MSCNAME";
+    public static final String COL_MSNETID="MSNETID";
+
+
     public static final String TRADE_TABLE_NAME="trade_table";
     public static final String COL_ITID="ITID";
     public static final String COL_ITNAME="ITNAME";
@@ -83,6 +89,9 @@ public class DBHelper extends SQLiteOpenHelper{
                 " PHNUM TEXT, NETID TEXT, UNAME TEXT, PW TEXT, SQ TEXT)");
         db.execSQL("CREATE TABLE " + CLUB_TABLE_NAME +"(CID INTEGER PRIMARY KEY AUTOINCREMENT, CLUB_NAME TEXT, ADMIN TEXT, " +
                 "FOREIGN KEY (NETID) REFERENCES " + MEMBER_TABLE_NAME + "(NETID) TEXT, FUNCTION TEXT)");
+        db.execSQL("CREATE TABLE " + MS_TABLE_NAME +"(MSID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "FOREIGN KEY (MSCNAME) REFERENCES " + CLUB_TABLE_NAME + "(CNAME) TEXT, " +
+                "FOREIGN KEY (MSNETID) REFERENCES " + MEMBER_TABLE_NAME + "(NETID) TEXT)");
         db.execSQL("PRAGMA foreign_keys=ON");
         db.execSQL("CREATE TABLE " + TRADE_TABLE_NAME +"(ITID INTEGER PRIMARY KEY AUTOINCREMENT, ITNAME TEXT, PRICE TEXT, INFO TEXT," +
                 " EID TEXT, PHNUM TEXT, FOTO BLOB)");
@@ -98,6 +107,8 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS " + MEMBER_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + CLUB_TABLE_NAME);
         db.execSQL("PRAGMA foreign_keys=ON" + CLUB_TABLE_NAME);
+        db.execSQL("PRAGMA foreign_keys=ON" + MS_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + MS_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TRADE_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + POST_TABLE_NAME);
         onCreate(db);
@@ -152,6 +163,20 @@ public class DBHelper extends SQLiteOpenHelper{
         else
             return true;
     }
+
+    public boolean insertMsData(String mscname,String msnetid) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_MSCNAME,mscname);
+        contentValues.put(COL_MSNETID,msnetid);
+
+        long result = db.insert(MS_TABLE_NAME, null ,contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
 
     public boolean insertTradeData(String itname, String price, String info, String eid, String phnum, byte[] foto) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -224,6 +249,13 @@ public class DBHelper extends SQLiteOpenHelper{
         Cursor res = db.rawQuery("select * from "+ CLUB_TABLE_NAME,null);
         return res;
     }
+
+    public Cursor getMsAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+ MS_TABLE_NAME,null);
+        return res;
+    }
+
 
     public Cursor getTradeAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
