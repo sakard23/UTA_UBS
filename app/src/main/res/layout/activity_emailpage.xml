@@ -13,13 +13,23 @@
     tools:context="com.example.xakr.uta_ubs.emailpage">
 
     <Button
-        android:text="write email"
+        android:text="write email to an individual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button14"
+        android:id="@+id/individual"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="139dp" />
+
+    <Button
+        android:text="write email to a group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/group"
+        android:onClick="groupEmail"
+        android:layout_below="@+id/individual"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"

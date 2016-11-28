@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 
 public class DBHelper extends SQLiteOpenHelper{
-    //jhghj
+
     public static Cursor userCursor;
     public static final String DATABASE_NAME= "ubsdb.db";
     public static final String MEMBER_TABLE_NAME="users_table";
@@ -58,7 +58,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     private ArrayList<Item> items=new ArrayList<Item>();
     private ArrayList<Club> clubs=new ArrayList<Club>();
-
+    private ArrayList<User> users=new ArrayList<User>();
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
         this.context=context;
@@ -105,6 +105,16 @@ public class DBHelper extends SQLiteOpenHelper{
         contentValues.put(COL_7, pw);
         contentValues.put(COL_8,sq);
 
+        User user=new User();
+        user.set_fisrtName(fname);
+        user.set_lastName(lname);
+        user.set_email(eid);
+        user.set_phone(phnum);
+        user.set_netId(netid);
+        user.set_userName(uname);
+        user.set_password(pw);
+        user.setSq(sq);
+        users.add(user);
         long result = db.insert(MEMBER_TABLE_NAME, null, contentValues);
         if (result == -1) {
             return false;
@@ -285,5 +295,9 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public ArrayList<Club> returnClub(){
         return clubs;
+    }
+
+    public ArrayList<User> returnUser() {
+        return users;
     }
 }
