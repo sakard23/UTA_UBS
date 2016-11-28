@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class joinclub extends AppCompatActivity {
-    /*ListView listView;
+    ListView listView;
     clubAdapter adapter;
     DBHelper myDb;
     @Override
@@ -23,8 +23,8 @@ public class joinclub extends AppCompatActivity {
         myDb = DBHelper.getInstance(this.getApplicationContext());
         adapter=new clubAdapter(joinclub.this,myDb.returnClub());
         listView.setAdapter(adapter);
-    }*/
-
+    }
+/*
 
     DBHelper myDb;
     EditText editMsid,editMscname,editMsnetid;
@@ -106,5 +106,5 @@ public class joinclub extends AppCompatActivity {
         builder.setMessage(Message);
         builder.show();
     }
-
+*/
 }
