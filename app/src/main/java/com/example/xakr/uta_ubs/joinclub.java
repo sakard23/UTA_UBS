@@ -15,7 +15,7 @@ public class joinclub extends AppCompatActivity {
     clubAdapter adapter;
     DBHelper myDb;
 
-
+//////////
 
     //DBHelper myDb;
     EditText editMsid,editMscname,editMsnetid;
