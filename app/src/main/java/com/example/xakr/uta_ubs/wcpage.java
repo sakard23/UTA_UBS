@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class wcpage extends AppCompatActivity {
 
@@ -81,9 +83,30 @@ public class wcpage extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main,menu);
-
-
     return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.logout:
+
+                if (true)
+                    Toast.makeText(wcpage.this,"Logout Successful", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(wcpage.this,"Error occured while Registration. Please Try Again", Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(getApplicationContext(),loginpage.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.settings:
+                break;
+
+        }
+
+        return super.onOptionsItemSelected(item);
 
     }
 }

@@ -32,6 +32,7 @@
         android:ems="8"
         android:id="@+id/Password"
         android:hint="Password"
+        android:password="true"
         android:layout_marginTop="13dp"
         android:layout_below="@+id/log_in"
         android:layout_alignStart="@+id/log_in" />
