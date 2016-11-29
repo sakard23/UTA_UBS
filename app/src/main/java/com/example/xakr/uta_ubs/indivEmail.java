@@ -23,5 +23,5 @@ public class indivEmail extends AppCompatActivity {
         myDb = DBHelper.getInstance(this.getApplicationContext());
         adapter=new indivEmailAdapter(indivEmail.this,myDb.returnUser());
         listView.setAdapter(adapter);
-    }//kj
+    }
 }

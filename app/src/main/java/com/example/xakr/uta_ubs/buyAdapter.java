@@ -62,7 +62,7 @@ public class buyAdapter extends BaseAdapter {
         TextView name = (TextView) convertView.findViewById(R.id.name);
         TextView price = (TextView) convertView.findViewById(R.id.price);
         TextView description = (TextView) convertView.findViewById(R.id.description);
-        Button email=(Button) convertView.findViewById(R.id.email);
+        TextView email=(TextView) convertView.findViewById(R.id.email);
 
         Item e = new Item();
         e = items.get(position);
@@ -70,6 +70,7 @@ public class buyAdapter extends BaseAdapter {
         name.setText("Item: " + e.getItname());
         price.setText("Price: " + e.getPrice());
         description.setText("Details: " + e.getDetails());
+        email.setText("Email: "+e.getEid());
         return convertView;
     }
 
