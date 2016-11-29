@@ -24,11 +24,6 @@
         android:layout_height="wrap_content"
         android:hint="Club Admin"
         android:id="@+id/admin" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Net ID"
-        android:id="@+id/net_id" />
 
     <EditText
         android:layout_width="match_parent"

@@ -11,7 +11,7 @@ public class Club {
     private String function;
 
     public Club(){};
-
+/////new layout page//////
     public int getCid() {
         return cid;
     }
