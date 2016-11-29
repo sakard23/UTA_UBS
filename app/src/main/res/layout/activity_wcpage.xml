@@ -13,7 +13,7 @@
 
     <Button
         android:text="@string/trade"
-        android:layout_width="wrap_content"
+        android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:background="#009688"
         android:textColor="#FFFFFF"
@@ -27,7 +27,7 @@
 
     <Button
         android:text="@string/post"
-        android:layout_width="wrap_content"
+        android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:background="#009688"
         android:textColor="#FFFFFF"
@@ -41,7 +41,7 @@
 
     <Button
         android:text="@string/email"
-        android:layout_width="wrap_content"
+        android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:background="#009688"
         android:textColor="#FFFFFF"
@@ -90,7 +90,8 @@
 
     <Button
         android:text="@string/club"
-        android:layout_width="wrap_content"
+
+        android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:background="#009688"
         android:textColor="#FFFFFF"
