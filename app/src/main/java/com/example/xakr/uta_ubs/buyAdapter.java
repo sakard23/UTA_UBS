@@ -49,7 +49,7 @@ public class buyAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         // TODO Auto-generated method stub
-        return position;
+        return position;//jjkj
     }
 
     @Override
