@@ -110,7 +110,7 @@ public class sellpage extends AppCompatActivity {
                                 buffer.append("Phone Number :" + res.getString(5) + "\n");
                             }
                         }
-
+                        res.close();
                         // Show all data
                         showMessage("Item Details",buffer.toString());
                     }

@@ -16,10 +16,11 @@ public class emailpage extends AppCompatActivity {
         setContentView(R.layout.activity_emailpage);
     }
 
-    public void indivEmail(View view){
-        Intent intent=new Intent(this,selectIndiv.class);
+    protected void indivEmail(View view){
+        Intent intent=new Intent(this,indivEmail.class);
         startActivity(intent);
     }
+
 
 
     public boolean onCreateOptionsMenu(Menu menu) {

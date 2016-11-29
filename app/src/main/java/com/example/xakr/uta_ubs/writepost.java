@@ -82,6 +82,7 @@ public class writepost extends AppCompatActivity {
                         }
 
                         // Show all data
+                        res.close();
                         showMessage("Data",buffer.toString());
                     }
                 }

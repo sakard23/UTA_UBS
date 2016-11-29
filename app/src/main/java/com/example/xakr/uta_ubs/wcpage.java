@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 
 public class wcpage extends AppCompatActivity {
 
+    EditText keyword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +58,19 @@ public class wcpage extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Intent i = new Intent(getApplicationContext(), emailpage.class);
+                startActivity(i);
+            }
+        });
+        keyword=(EditText) findViewById(R.id.search);
+        Button X=(Button) findViewById(R.id.search_button);
+        X.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                String s=keyword.getText().toString();
+                Intent i = new Intent(getApplicationContext(), searchpage.class);
+                i.putExtra("KEY",s);
                 startActivity(i);
             }
         });

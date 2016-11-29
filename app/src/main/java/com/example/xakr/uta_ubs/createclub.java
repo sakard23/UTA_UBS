@@ -81,6 +81,7 @@ public class createclub extends AppCompatActivity {
                         }
 
                         // Show all data
+                        res.close();
                         showMessage("Club List",buffer.toString());
                     }
                 }

@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:background="#E0F2F1"
-    tools:context="com.example.xakr.uta_ubs.sendmsg">
+    >
 
     <EditText
         android:layout_width="match_parent"

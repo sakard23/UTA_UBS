@@ -58,6 +58,7 @@ public class securitypage extends AppCompatActivity {
         if(!(c.moveToFirst())){
             Toast.makeText(securitypage.this, "Invalid Input", Toast.LENGTH_SHORT).show();
         }
+        c.close();
     }
 }
 

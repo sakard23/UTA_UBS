@@ -258,6 +258,12 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
 */
+    public Cursor getMemberAllData(){
+        SQLiteDatabase db=this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+ MEMBER_TABLE_NAME,null,null);
+        return res;
+    }
+
     public Cursor getTradeAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "+ TRADE_TABLE_NAME,null,null);

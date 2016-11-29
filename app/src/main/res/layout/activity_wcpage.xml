@@ -64,13 +64,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <SearchView
+    <EditText
         android:layout_width="222dp"
         android:layout_height="55dp"
         android:id="@+id/search"
         android:layout_marginTop="14dp"
         android:layout_below="@+id/textView5"
-        android:layout_toStartOf="@+id/button007"
+        android:layout_toStartOf="@+id/search_button"
         android:background="#6600695c"
         android:layout_marginEnd="31dp"
         tools:background="?android:attr/textColorSearchUrl" />
@@ -79,7 +79,7 @@
         android:text="Search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button007"
+        android:id="@+id/search_button"
         android:layout_alignTop="@+id/search"
         android:layout_alignEnd="@+id/textView5"
         android:background="#098766"
