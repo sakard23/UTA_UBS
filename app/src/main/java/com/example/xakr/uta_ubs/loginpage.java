@@ -22,6 +22,7 @@ public class loginpage extends AppCompatActivity {
     DBHelper myDb;
     EditText txtusername;
     EditText txtpassword;
+    TextView yourTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
