@@ -60,7 +60,7 @@ public class sellpage extends AppCompatActivity {
         btnviewAll = (Button)findViewById(R.id.button18);
         btnviewUpdate= (Button)findViewById(R.id.button20);
         btnDelete= (Button)findViewById(R.id.button19);
-
+///button for selection
         AddData();
         viewAll();
         UpdateData();
