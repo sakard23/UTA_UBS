@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -41,6 +42,7 @@ public class loginpage extends AppCompatActivity {
     public void logIn(View view){
         txtusername=(EditText)findViewById(R.id.log_in);
         txtpassword=(EditText)findViewById((R.id.Password));
+        //yourTextView.setTransformationMethod(new PasswordTransformationMethod());
         String username=txtusername.getText().toString();
         String password=txtpassword.getText().toString();
         Cursor c=myDb.validateUser(username);

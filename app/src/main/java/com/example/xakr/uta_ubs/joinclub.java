@@ -14,19 +14,10 @@ public class joinclub extends AppCompatActivity {
     ListView listView;
     clubAdapter adapter;
     DBHelper myDb;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_joinclub);
 
-        listView=(ListView) findViewById(R.id.listView);
-        myDb = DBHelper.getInstance(this.getApplicationContext());
-        adapter=new clubAdapter(joinclub.this,myDb.returnClub());
-        listView.setAdapter(adapter);
-    }
-/*
 
-    DBHelper myDb;
+
+    //DBHelper myDb;
     EditText editMsid,editMscname,editMsnetid;
     Button btnAddData;
     Button btnviewAll;
@@ -36,7 +27,8 @@ public class joinclub extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.jpt);
+        setContentView(R.layout.activity_joinclub);
+        //setContentView(R.layout.jpt);//theres layout for this
 
         //create new database connection
         myDb = DBHelper.getInstance(this.getApplicationContext());
@@ -54,6 +46,11 @@ public class joinclub extends AppCompatActivity {
         viewAll();
        // UpdateData();
         //DeleteData();
+
+        listView=(ListView) findViewById(R.id.listView);
+        myDb = DBHelper.getInstance(this.getApplicationContext());
+        adapter=new clubAdapter(joinclub.this,myDb.returnClub());
+        listView.setAdapter(adapter);
     }
 
     public  void AddData() {
@@ -106,5 +103,5 @@ public class joinclub extends AppCompatActivity {
         builder.setMessage(Message);
         builder.show();
     }
-*/
+
 }

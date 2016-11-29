@@ -1,6 +1,7 @@
 package com.example.xakr.uta_ubs;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -13,7 +14,7 @@ import android.widget.Toast;
 public class registerpage extends AppCompatActivity {
 
     DBHelper myDb;//xakr added
-    EditText editFname,editLname,editEid,editPhnum, editNid, editUname,editPw,editSq;//xakr added
+    EditText editFname,editLname,editEid,editPhnum, editNid, editUname,editPw,editSq, editNetid;//xakr added
     Button btnAddData;//xakr added
 
     @Override
@@ -59,4 +60,27 @@ public class registerpage extends AppCompatActivity {
         );
     }
 
+   /* public void logIn(View view){
+        editNetid=(EditText)findViewById(R.id.netId);
+        //txtpassword=(EditText)findViewById((R.id.Password));
+        String username=editNetid.getText().toString();
+        //String password=txtpassword.getText().toString();
+        Cursor c=myDb.validateUser(username);
+        if(!(c.moveToFirst())){
+            Toast.makeText(registerpage.this,"No account associated with this username.", Toast.LENGTH_LONG).show();
+        }
+        if(c.moveToFirst()){
+            if(password.equals(c.getString(c.getColumnIndex("PW")))){
+                myDb.setUser(username);
+                Intent startWCIntent = new Intent(getApplicationContext(), wcpage.class);
+                startActivity(startWCIntent);
+            }
+            else{
+                Toast.makeText(loginpage.this,"Invalid password.", Toast.LENGTH_LONG).show();
+            }
+        }
+        c.close();//comment
+
+    }
+*/
 }

@@ -80,6 +80,7 @@
         android:textAllCaps="false"
         android:text="Forgot Password?"
         android:onClick="forgotPassword"
+
         android:clickable="true"
         style="?android:attr/borderlessButtonStyle"
         android:id="@+id/button17"
