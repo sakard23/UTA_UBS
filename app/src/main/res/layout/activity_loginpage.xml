@@ -100,7 +100,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ubs_logo2"
+        app:srcCompat="@drawable/ubs_logo"
         android:id="@+id/imageView2"
         android:layout_above="@+id/log_in"
         android:layout_alignStart="@+id/log_in"

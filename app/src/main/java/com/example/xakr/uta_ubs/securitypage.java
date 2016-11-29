@@ -51,12 +51,12 @@ public class securitypage extends AppCompatActivity {
                  dialog.show();
              }
              else{
-                 Toast.makeText(securitypage.this, "Invalid.", Toast.LENGTH_SHORT).show();
+                 Toast.makeText(securitypage.this, "Invalid Input", Toast.LENGTH_SHORT).show();
              }
 
         }
         if(!(c.moveToFirst())){
-            Toast.makeText(securitypage.this, "Invalid.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(securitypage.this, "Invalid Input", Toast.LENGTH_SHORT).show();
         }
     }
 }
