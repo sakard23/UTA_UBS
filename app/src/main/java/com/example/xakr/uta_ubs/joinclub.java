@@ -42,8 +42,8 @@ public class joinclub extends AppCompatActivity {
         btnviewAll = (Button)findViewById(R.id.send111);
         //btnviewUpdate= (Button)findViewById(R.id.send001);
         //btnDelete= (Button)findViewById(R.id.send002);
-        AddData();
-        viewAll();
+        //AddData();
+        //viewAll();
        // UpdateData();
         //DeleteData();
 
@@ -52,7 +52,7 @@ public class joinclub extends AppCompatActivity {
         adapter=new clubAdapter(joinclub.this,myDb.returnClub());
         listView.setAdapter(adapter);
     }
-
+/*
     public  void AddData() {
         btnAddData.setOnClickListener(
                 new View.OnClickListener() {
@@ -103,5 +103,5 @@ public class joinclub extends AppCompatActivity {
         builder.setMessage(Message);
         builder.show();
     }
-
+*/
 }
