@@ -48,7 +48,7 @@
         <activity android:name=".securitypage" />
         <activity android:name=".selectclub" />
         <activity android:name=".searchpage" />
-
+        <activity android:name=".indivEmail"/>
     </application>
 
 </manifest>

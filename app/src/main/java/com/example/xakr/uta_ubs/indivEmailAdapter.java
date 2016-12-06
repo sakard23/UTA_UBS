@@ -1,11 +1,14 @@
 package com.example.xakr.uta_ubs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -16,6 +19,7 @@ import java.util.ArrayList;
 public class indivEmailAdapter extends BaseAdapter {
     private Context context;
     ArrayList<User> users;
+    User e=new User();
     private static LayoutInflater inflater=null;
 
     public indivEmailAdapter(Context context,ArrayList<User> users){
@@ -24,9 +28,6 @@ public class indivEmailAdapter extends BaseAdapter {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    public indivEmailAdapter() {
-        super();
-    }
 
     @Override
     public int getCount() {
@@ -49,9 +50,11 @@ public class indivEmailAdapter extends BaseAdapter {
             convertView=inflater.inflate(R.layout.listuser,null);
 
         TextView txtview=(TextView) convertView.findViewById(R.id.txtview);
-        User e=new User();
+        Button btn=(Button) convertView.findViewById(R.id.btn);
         e=users.get(position);
         txtview.setText(e.get_fisrtName());
         return convertView;
     }
+
+
 }

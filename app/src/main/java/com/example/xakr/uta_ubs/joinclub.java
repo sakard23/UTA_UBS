@@ -18,9 +18,9 @@ public class joinclub extends AppCompatActivity {
 //////////
 
     //DBHelper myDb;
-    EditText editMsid,editMscname,editMsnetid;
-    Button btnAddData;
-    Button btnviewAll;
+    //EditText editMsid,editMscname,editMsnetid;
+    //Button btnAddData;
+    //Button btnviewAll;
     //Button btnDelete;
     //boolean check = checkDataBase();
     //Button btnviewUpdate;
@@ -34,16 +34,16 @@ public class joinclub extends AppCompatActivity {
         myDb = DBHelper.getInstance(this.getApplicationContext());
         //myDb.onCreate();
 
-        editMscname = (EditText)findViewById(R.id.select);
-        editMsnetid = (EditText)findViewById(R.id.admin);
+      //  editMscname = (EditText)findViewById(R.id.select);
+        //editMsnetid = (EditText)findViewById(R.id.admin);
 
-        editMsid = (EditText)findViewById(R.id.id);
-        btnAddData = (Button)findViewById(R.id.send10);
-        btnviewAll = (Button)findViewById(R.id.send111);
+        //editMsid = (EditText)findViewById(R.id.id);
+        //btnAddData = (Button)findViewById(R.id.send10);
+        //btnviewAll = (Button)findViewById(R.id.send111);
         //btnviewUpdate= (Button)findViewById(R.id.send001);
         //btnDelete= (Button)findViewById(R.id.send002);
         //AddData();
-        viewAll();
+        //viewAll();
        // UpdateData();
         //DeleteData();
 
@@ -69,7 +69,7 @@ public class joinclub extends AppCompatActivity {
         );
     }*/
 
-    public void viewAll() {
+    /*public void viewAll() {
         btnviewAll.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -94,14 +94,14 @@ public class joinclub extends AppCompatActivity {
                     }
                 }
         );
-    }
+    }*/
 
-    public void showMessage(String title,String Message){
+    /*public void showMessage(String title,String Message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle(title);
         builder.setMessage(Message);
         builder.show();
-    }
+    }*/
 
 }
